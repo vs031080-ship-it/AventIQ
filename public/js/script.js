@@ -142,4 +142,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Active link highlighting based on URL
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath) {
+            link.classList.add('active');
+            // If it's inside a dropdown, also highlight the parent dropdown trigger
+            const parentDropdown = link.closest('.dropdown');
+            if (parentDropdown) {
+                const trigger = parentDropdown.querySelector('a');
+                if (trigger) trigger.classList.add('active');
+            }
+        }
+    });
+
 });

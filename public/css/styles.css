@@ -277,10 +277,43 @@ p {
     padding: 12px 16px;
     border-radius: var(--radius-md);
     font-size: 14px;
+    color: var(--color-text-dark) !important;
+    /* Force dark text */
 }
 
-.dropdown-menu a:hover {
+.dropdown-menu a:hover,
+.dropdown-menu a.active {
     background: var(--color-light-bg);
+    color: var(--color-lavender) !important;
+}
+
+/* Active State for Top Level Links */
+.nav-links>a.active,
+.dropdown>a.active {
+    color: var(--color-lavender);
+}
+
+.nav-links>a.active::after,
+.dropdown>a.active::after {
+    width: 100%;
+}
+
+/* Ensure navbar dark mode active state works */
+.navbar-dark .nav-links>a.active {
+    color: var(--color-mint);
+}
+
+.navbar-dark .nav-links>a.active::after {
+    background: var(--color-mint);
+}
+
+/* Scrolled state active overrides */
+.navbar-dark.scrolled .nav-links>a.active {
+    color: var(--color-lavender);
+}
+
+.navbar-dark.scrolled .nav-links>a.active::after {
+    background: var(--color-lavender);
 }
 
 .nav-cta {
