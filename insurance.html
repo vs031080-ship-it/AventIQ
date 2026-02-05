@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Industry Solutions - AventIQ</title>
+    <meta name="description"
+        content="Automation Is the Future of Insurance Excellence. Precision-driven automation to accelerate claims and streamline underwriting.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .industry-hero {
+            min-height: 85vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0f0f2a 100%);
+        }
+
+        .industry-hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
+            color: white;
+        }
+
+        .industry-hero-text .section-label {
+            color: var(--color-mint);
+            margin-bottom: 16px;
+        }
+
+        .industry-hero-text h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .industry-hero-text p {
+            font-size: 20px;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .industry-hero-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 16px;
+            padding: 40px;
+        }
+
+        .industry-hero-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .industry-hero-images .img-tall {
+            grid-row: span 2;
+        }
+
+        .stats-banner {
+            background: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 100%);
+            padding: 60px 0;
+        }
+
+        .stats-banner .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 32px;
+            text-align: center;
+            color: white;
+        }
+
+        .stats-banner .stat-item h3 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stats-banner .stat-item p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .solutions-accordion {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .accordion-nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--color-border);
+            padding: 24px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item h3 {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--color-text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .accordion-item.active h3 {
+            color: #3b82f6;
+        }
+
+        .accordion-item p {
+            display: none;
+            margin-top: 12px;
+            color: var(--color-text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .accordion-item.active p {
+            display: block;
+        }
+
+        .accordion-visual {
+            position: sticky;
+            top: 100px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .accordion-visual img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .outcomes-section {
+            background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
+        }
+
+        .outcome-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .outcome-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .outcome-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .outcome-card .outcome-value {
+            font-size: 56px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .outcome-card h4 {
+            font-size: 18px;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .outcome-card p {
+            color: var(--color-text-muted);
+            font-size: 14px;
+        }
+
+        .image-section {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .image-section img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-section .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(29, 78, 216, 0.9) 0%, rgba(59, 130, 246, 0.7) 100%);
+        }
+
+        .image-section .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 700px;
+            padding: 40px;
+        }
+
+        .image-section .content h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .image-section .content p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        /* Feature Cards Section */
+        .feature-cards-section {
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .feature-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .feature-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        .feature-card p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* Process Steps Section */
+        .process-section {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+            color: white;
+        }
+
+        .process-section .section-head h2 {
+            color: white;
+        }
+
+        .process-section .section-head p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+            margin-top: 60px;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 50%, var(--color-mint) 100%);
+            border-radius: 2px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+            font-weight: 700;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4);
+        }
+
+        .process-step h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="AventIQBG.png" alt="AventIQ">
+            </a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="#">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="ai-automation-consulting.html">AI & Automation Consulting</a>
+                        <a href="opportunity-discovery.html">Opportunity Discovery</a>
+                        <a href="implementation-services.html">Implementation Services</a>
+                        <a href="cybersecurity-compliance.html">Cybersecurity & Compliance</a>
+                        <a href="managed-delivery.html">Managed Delivery</a>
+                        <a href="custom-ai-delivery.html">Custom AI Solutions</a>
+                        <a href="enterprise-app-development.html">Enterprise App Development</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="active">Industries</a>
+                    <div class="dropdown-menu">
+                        <a href="banking.html">Banking</a>
+                        <a href="finance.html">Finance</a>
+                        <a href="insurance.html">Insurance</a>
+                        <a href="automotive.html">Automotive</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Products</a>
+                </div>
+                <div class="dropdown">
+                    <a href="projects.html">Resources</a>
+                </div>
+                <a href="contact-us.html">Contact</a>
+            </div>
+            <div class="nav-cta">
+                <a href="contact-us.html" class="btn btn-outline-white btn-arrow">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="industry-hero">
+        <div class="industry-hero-text">
+            <span class="section-label">Insurance Industry</span>
+            <h1>Automation Is the Future of <span class="text-gradient">Insurance Excellence</span></h1>
+            <p>Precision-driven automation to accelerate claims and streamline underwriting for better customer
+                experiences.</p>
+            <div class="hero-buttons">
+                <a href="contact-us.html" class="btn btn-white btn-arrow">Get Started</a>
+                <a href="projects.html" class="btn btn-outline-white btn-arrow">View Case Studies</a>
+            </div>
+        </div>
+        <div class="industry-hero-images">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop"
+                alt="Insurance business" class="img-tall">
+            <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=400&h=300&fit=crop"
+                alt="Document processing">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop"
+                alt="Claims processing">
+        </div>
+    </section>
+
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>60%</h3>
+                    <p>Faster Underwriting</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Premium Accuracy</p>
+                </div>
+                <div class="stat-item">
+                    <h3>70%</h3>
+                    <p>Faster Claims</p>
+                </div>
+                <div class="stat-item">
+                    <h3>25%</h3>
+                    <p>Higher CSAT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label">Solutions</span>
+                <h2>What We Solve for Insurance</h2>
+                <p>Comprehensive automation solutions for the insurance sector.</p>
+            </div>
+            <div class="solutions-accordion">
+                <div class="accordion-nav">
+                    <div class="accordion-item active"
+                        data-image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop">
+                        <h3>Policy Underwriting Automation</h3>
+                        <p>Reduce turnaround time by 60% and achieve 98% accuracy in premium calculations. Automate risk
+                            assessment, policy creation, and approval workflows.</p>
+                    </div>
+                    <div class="accordion-item"
+                        data-image="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop">
+                        <h3>Claims Processing Acceleration</h3>
+                        <p>Decrease claims processing time by 70% and increase customer satisfaction by 25%. Automate
+                            claims intake, validation, and settlement processes.</p>
+                    </div>
+                    <div class="accordion-item"
+                        data-image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop">
+                        <h3>Regulatory Compliance & Auditing</h3>
+                        <p>Lower compliance exceptions by up to 85% and cut audit preparation efforts by 50%. Ensure
+                            continuous regulatory compliance with automated monitoring.</p>
+                    </div>
+                    <div class="accordion-item"
+                        data-image="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop">
+                        <h3>Customer Service Automation</h3>
+                        <p>Deploy intelligent chatbots and virtual assistants to handle inquiries, policy updates, and
+                            claims status checks 24/7 with consistent quality.</p>
+                    </div>
+                </div>
+                <div class="accordion-visual">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop"
+                        alt="Insurance solution" id="accordionImage">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards Section - Redefining Insurance with Agentic AI -->
+    <section class="section feature-cards-section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label">Capabilities</span>
+                <h2>Redefining Insurance with Agentic AI & RPA</h2>
+                <p>Speed and profitability across the entire policy lifecycle through intelligent automation.</p>
+            </div>
+            <div class="feature-cards-grid">
+                <div class="feature-card">
+                    <div class="feature-card-icon">📝</div>
+                    <h3>Streamline Policy Underwriting</h3>
+                    <p>Automated data collection, risk assessment, and premium calculations. Achieve 98% accuracy in
+                        premium calculations with instant, 24/7 customer quotes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">⚡</div>
+                    <h3>Accelerate Claims Processing</h3>
+                    <p>End-to-end claim management from intake to settlement. Reduce claims processing time by 70% and
+                        boost customer satisfaction by 25%.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🛡️</div>
+                    <h3>Ensure Regulatory Compliance</h3>
+                    <p>Real-time monitoring and automated audit trails. Lower compliance exceptions by 85% and cut audit
+                        preparation efforts by 50%.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🔄</div>
+                    <h3>Optimize Customer Renewals</h3>
+                    <p>AI-driven virtual assistants for communication and renewal reminders. Boost policy renewal rates
+                        by 20% and improve customer retention by 15%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Steps Section - Insurance RPA Automation Process -->
+    <section class="section process-section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label" style="color: var(--color-mint);">How It Works</span>
+                <h2>Insurance RPA Automation Process</h2>
+                <p>A streamlined approach to transforming your insurance operations with intelligent automation.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <h4>Policy Creation</h4>
+                    <p>Automated customer data intake, risk assessment, and policy document generation.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <h4>Claims Intake</h4>
+                    <p>Intelligent capture, validation, and routing of claim submissions.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <h4>Risk Assessment</h4>
+                    <p>AI-powered evaluation and fraud detection for accurate claim decisions.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">4</div>
+                    <h4>Customer Communication</h4>
+                    <p>Automated status updates, approvals, and payment notifications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="image-section">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&h=600&fit=crop"
+            alt="Insurance office">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>"Customer experience is the new battleground in insurance."</h2>
+            <p>Win with faster claims, smarter underwriting, and seamless service.</p>
+            <a href="contact-us.html" class="btn btn-white btn-arrow">Start Your Transformation</a>
+        </div>
+    </section>
+
+    <section class="section outcomes-section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label">Outcomes</span>
+                <h2>Results You Can Expect</h2>
+            </div>
+            <div class="outcome-cards">
+                <div class="outcome-card">
+                    <div class="outcome-value">60%</div>
+                    <h4>Faster Underwriting</h4>
+                    <p>Reduce policy turnaround time.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">98%</div>
+                    <h4>Premium Accuracy</h4>
+                    <p>Improve premium calculation precision.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">70%</div>
+                    <h4>Faster Claims</h4>
+                    <p>Accelerate claims processing.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">25%</div>
+                    <h4>Higher CSAT</h4>
+                    <p>Improve customer satisfaction scores.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">85%</div>
+                    <h4>Fewer Exceptions</h4>
+                    <p>Reduce compliance exceptions.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">50%</div>
+                    <h4>Faster Audits</h4>
+                    <p>Cut audit preparation time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Insurance Operations?</h2>
+                <p>Let's discuss how intelligent automation can improve claims and underwriting.</p>
+                <a href="contact-us.html" class="btn btn-white btn-arrow">Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="AventIQBG.png" alt="AventIQ">
+                    <p>AventIQ specializes in delivering transformative digital solutions through AI, RPA, and digital
+                        engineering.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="projects.html">Case Studies</a>
+                        <a href="contact-us.html">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Industries</h4>
+                    <div class="footer-links">
+                        <a href="banking.html">Banking</a>
+                        <a href="finance.html">Finance</a>
+                        <a href="insurance.html">Insurance</a>
+                        <a href="automotive.html">Automotive</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <p><strong>India:</strong> New Delhi, 110044</p>
+                        <p><strong>USA:</strong> Austin, TX 78731</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AventIQ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                document.getElementById('accordionImage').src = item.getAttribute('data-image');
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

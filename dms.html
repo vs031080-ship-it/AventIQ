@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AventIQ DMS - Document Management System</title>
+    <meta name="description"
+        content="Streamline Your Document Workflow with Our Advanced AI-Powered Document Management System.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Split Hero */
+        .dms-hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .dms-hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
+            color: white;
+        }
+
+        .dms-hero-content .product-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #60a5fa;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .dms-hero-content h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .dms-hero-content h1 span {
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .dms-hero-content p {
+            font-size: 20px;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .dms-hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-blue:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-light:hover {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .dms-hero-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dms-hero-visual::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .floating-docs {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+        }
+
+        .doc-card {
+            position: absolute;
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .doc-card:nth-child(1) {
+            top: 0;
+            left: 0;
+            animation-delay: 0s;
+        }
+
+        .doc-card:nth-child(2) {
+            top: 80px;
+            right: 0;
+            animation-delay: 1s;
+        }
+
+        .doc-card:nth-child(3) {
+            bottom: 80px;
+            left: 40px;
+            animation-delay: 2s;
+        }
+
+        .doc-card:nth-child(4) {
+            bottom: 0;
+            right: 40px;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .doc-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .doc-icon.pdf {
+            background: #fee2e2;
+        }
+
+        .doc-icon.doc {
+            background: #dbeafe;
+        }
+
+        .doc-icon.xls {
+            background: #dcfce7;
+        }
+
+        .doc-icon.img {
+            background: #fef3c7;
+        }
+
+        .doc-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .doc-info p {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        /* Steps Section */
+        .steps-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.15);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            margin: 20px auto 24px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+
+        .step-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Features Bento Grid */
+        .bento-section {
+            padding: 120px 0;
+            background: #0f172a;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 300px);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .bento-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .bento-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-4px);
+        }
+
+        .bento-card.large {
+            grid-column: span 2;
+        }
+
+        .bento-card.tall {
+            grid-row: span 2;
+        }
+
+        .bento-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .bento-card p {
+            font-size: 16px;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .bento-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .bento-image {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            opacity: 0.3;
+        }
+
+        /* Search Demo Section */
+        .search-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+        }
+
+        .search-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .search-content h2 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 24px;
+        }
+
+        .search-content h2 span {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .search-content p {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .search-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .filter-tag {
+            background: #eff6ff;
+            color: #3b82f6;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tag:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .search-visual {
+            position: relative;
+        }
+
+        .search-bar-demo {
+            background: white;
+            border-radius: 16px;
+            padding: 16px 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .search-bar-demo input {
+            flex: 1;
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-results {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .search-result {
+            background: white;
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .search-result:hover {
+            transform: translateX(8px);
+        }
+
+        .result-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .result-text h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        .result-text p {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        /* Security Section */
+        .security-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .security-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .badge-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            transition: all 0.3s ease;
+        }
+
+        .badge-icon:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .security-badge span {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .dms-cta {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
+            text-align: center;
+        }
+
+        .dms-cta h2 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .dms-cta p {
+            font-size: 20px;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="AventIQBG.png" alt="AventIQ">
+            </a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="#">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="ai-automation-consulting.html">AI & Automation Consulting</a>
+                        <a href="opportunity-discovery.html">Opportunity Discovery</a>
+                        <a href="implementation-services.html">Implementation Services</a>
+                        <a href="cybersecurity-compliance.html">Cybersecurity & Compliance</a>
+                        <a href="managed-delivery.html">Managed Delivery</a>
+                        <a href="custom-ai-delivery.html">Custom AI Solutions</a>
+                        <a href="enterprise-app-development.html">Enterprise App Development</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Industries</a>
+                    <div class="dropdown-menu">
+                        <a href="banking.html">Banking</a>
+                        <a href="finance.html">Finance</a>
+                        <a href="insurance.html">Insurance</a>
+                        <a href="automotive.html">Automotive</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="active">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="orchestrate.html">AventIQ Orchestrate</a>
+                        <a href="dms.html">Document Management</a>
+                        <a href="ccqa.html">Contact Center QA</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="projects.html">Resources</a>
+                </div>
+                <a href="contact-us.html">Contact</a>
+            </div>
+            <div class="nav-cta">
+                <a href="contact-us.html" class="btn btn-outline-white btn-arrow">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="dms-hero" id="hero">
+        <div class="dms-hero-content">
+            <div class="product-tag">📄 Document Management System</div>
+            <h1>Streamline Your Document Workflow with <span>AI Power</span></h1>
+            <p>Digitize, organize, and manage your entire document lifecycle—from capture to retrieval—with intelligent
+                automation.</p>
+            <div class="dms-hero-buttons">
+                <a href="contact-us.html" class="btn-blue">Start Free Trial</a>
+                <a href="#features" class="btn-outline-light">Explore Features</a>
+            </div>
+        </div>
+        <div class="dms-hero-visual">
+            <div class="floating-docs">
+                <div class="doc-card">
+                    <div class="doc-icon pdf">📄</div>
+                    <div class="doc-info">
+                        <h4>Contract_2024.pdf</h4>
+                        <p>Uploaded 2 mins ago</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon doc">📝</div>
+                    <div class="doc-info">
+                        <h4>Proposal_Draft.docx</h4>
+                        <p>Edited by John</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon xls">📊</div>
+                    <div class="doc-info">
+                        <h4>Financial_Report.xlsx</h4>
+                        <p>3 collaborators</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="doc-icon img">🖼️</div>
+                    <div class="doc-info">
+                        <h4>Design_Assets.zip</h4>
+                        <p>12 files</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="steps-section" id="steps">
+        <div class="container">
+            <div class="section-head" style="text-align: center;">
+                <span class="section-label">How It Works</span>
+                <h2>Get Started in 3 Simple Steps</h2>
+                <p>From signup to full productivity in minutes</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">📝</div>
+                    <h3>Sign Up</h3>
+                    <p>Create your account in seconds. No credit card required to get started.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">📁</div>
+                    <h3>Upload & Organize</h3>
+                    <p>Drag and drop your documents. Our AI automatically categorizes and tags them.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">🤝</div>
+                    <h3>Collaborate</h3>
+                    <p>Invite your team and start collaborating on documents in real-time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Bento Grid -->
+    <section class="bento-section" id="features">
+        <div class="container">
+            <div class="section-head" style="text-align: center;">
+                <span class="section-label" style="color: #60a5fa;">Features</span>
+                <h2 style="color: white;">Powerful Features for Modern Teams</h2>
+            </div>
+            <div class="bento-grid">
+                <div class="bento-card large">
+                    <div class="bento-icon">🔄</div>
+                    <h3>Real-time Collaboration</h3>
+                    <p>Multiple users can edit and review documents simultaneously. See changes as they happen with live
+                        cursors and instant sync.</p>
+                </div>
+                <div class="bento-card">
+                    <div class="bento-icon">🔍</div>
+                    <h3>Smart Search</h3>
+                    <p>Find any document in seconds with AI-powered search across content, metadata, and tags.</p>
+                </div>
+                <div class="bento-card tall">
+                    <div class="bento-icon">📊</div>
+                    <h3>Usage Insights</h3>
+                    <p>Track document access, modifications, and user activity with detailed analytics dashboards.</p>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
+                        alt="Analytics" class="bento-image" style="border-radius: 12px;">
+                </div>
+                <div class="bento-card">
+                    <div class="bento-icon">🔐</div>
+                    <h3>Version Control</h3>
+                    <p>Full document history with easy rollback capabilities.</p>
+                </div>
+                <div class="bento-card">
+                    <div class="bento-icon">👥</div>
+                    <h3>Role-Based Access</h3>
+                    <p>Fine-grained permissions to control who sees what.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Demo Section -->
+    <section class="search-section" id="search">
+        <div class="container">
+            <div class="search-demo">
+                <div class="search-content">
+                    <span class="section-label">Advanced Search</span>
+                    <h2>Find Anything <span>Instantly</span></h2>
+                    <p>Our powerful search engine understands context and delivers relevant results in milliseconds.
+                        Filter by project, type, date, author, and more.</p>
+                    <div class="search-filters">
+                        <div class="filter-tag">By Project</div>
+                        <div class="filter-tag">By Type</div>
+                        <div class="filter-tag">By Date</div>
+                        <div class="filter-tag">By Author</div>
+                        <div class="filter-tag">By Tag</div>
+                        <div class="filter-tag">By Status</div>
+                    </div>
+                </div>
+                <div class="search-visual">
+                    <div class="search-bar-demo">
+                        <span style="font-size: 20px;">🔍</span>
+                        <input type="text" placeholder="Search documents..." readonly>
+                    </div>
+                    <div class="search-results">
+                        <div class="search-result">
+                            <div class="result-icon" style="background: #fee2e2;">📄</div>
+                            <div class="result-text">
+                                <h4>Q4 Financial Report.pdf</h4>
+                                <p>Finance • Modified 2 days ago</p>
+                            </div>
+                        </div>
+                        <div class="search-result">
+                            <div class="result-icon" style="background: #dbeafe;">📝</div>
+                            <div class="result-text">
+                                <h4>Marketing Strategy 2024.docx</h4>
+                                <p>Marketing • 5 collaborators</p>
+                            </div>
+                        </div>
+                        <div class="search-result">
+                            <div class="result-icon" style="background: #dcfce7;">📊</div>
+                            <div class="result-text">
+                                <h4>Sales Pipeline.xlsx</h4>
+                                <p>Sales • Updated just now</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section" id="security">
+        <div class="container">
+            <span class="section-label" style="color: rgba(255,255,255,0.7);">Enterprise Security</span>
+            <h2 style="color: white; font-size: 48px; margin-top: 16px;">Your Documents Are Safe With Us</h2>
+            <p style="color: rgba(255,255,255,0.8); font-size: 18px; max-width: 600px; margin: 0 auto;">Enterprise-grade
+                security with encryption at rest and in transit, compliant with global standards.</p>
+            <div class="security-badges">
+                <div class="security-badge">
+                    <div class="badge-icon">🔒</div>
+                    <span>256-bit Encryption</span>
+                </div>
+                <div class="security-badge">
+                    <div class="badge-icon">🛡️</div>
+                    <span>SOC2 Compliant</span>
+                </div>
+                <div class="security-badge">
+                    <div class="badge-icon">📋</div>
+                    <span>GDPR Ready</span>
+                </div>
+                <div class="security-badge">
+                    <div class="badge-icon">✅</div>
+                    <span>ISO 27001</span>
+                </div>
+                <div class="security-badge">
+                    <div class="badge-icon">🏥</div>
+                    <span>HIPAA Compliant</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="dms-cta" id="cta">
+        <div class="container">
+            <h2>Ready to Transform Document Management?</h2>
+            <p>Join thousands of teams who trust AventIQ DMS for their document workflows.</p>
+            <div class="dms-hero-buttons" style="justify-content: center;">
+                <a href="contact-us.html" class="btn-blue">Start Free Trial</a>
+                <a href="contact-us.html" class="btn-outline-light"
+                    style="border-color: #3b82f6; color: #3b82f6;">Request Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="AventIQBG.png" alt="AventIQ">
+                    <p>AventIQ specializes in delivering transformative digital solutions through AI, RPA, and digital
+                        engineering.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <div class="footer-links">
+                        <a href="orchestrate.html">AventIQ Orchestrate</a>
+                        <a href="dms.html">Document Management</a>
+                        <a href="ccqa.html">Contact Center QA</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Industries</h4>
+                    <div class="footer-links">
+                        <a href="banking.html">Banking</a>
+                        <a href="finance.html">Finance</a>
+                        <a href="insurance.html">Insurance</a>
+                        <a href="automotive.html">Automotive</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <p><strong>India:</strong> New Delhi, 110044</p>
+                        <p><strong>USA:</strong> Austin, TX 78731</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AventIQ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

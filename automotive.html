@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive Industry Solutions - AventIQ</title>
+    <meta name="description"
+        content="Empowering Automotive Excellence with RPA & AI. Optimize production lines, streamline supply-chain operations, and deliver seamless customer experiences.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .industry-hero {
+            min-height: 85vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0f0f2a 100%);
+        }
+
+        .industry-hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
+            color: white;
+        }
+
+        .industry-hero-text .section-label {
+            color: var(--color-mint);
+            margin-bottom: 16px;
+        }
+
+        .industry-hero-text h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .industry-hero-text p {
+            font-size: 20px;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .industry-hero-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 16px;
+            padding: 40px;
+        }
+
+        .industry-hero-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .industry-hero-images .img-tall {
+            grid-row: span 2;
+        }
+
+        .stats-banner {
+            background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+            padding: 60px 0;
+        }
+
+        .stats-banner .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 32px;
+            text-align: center;
+            color: white;
+        }
+
+        .stats-banner .stat-item h3 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stats-banner .stat-item p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .solutions-accordion {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .accordion-nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--color-border);
+            padding: 24px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item h3 {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--color-text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .accordion-item.active h3 {
+            color: #f59e0b;
+        }
+
+        .accordion-item p {
+            display: none;
+            margin-top: 12px;
+            color: var(--color-text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .accordion-item.active p {
+            display: block;
+        }
+
+        .accordion-visual {
+            position: sticky;
+            top: 100px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .accordion-visual img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .outcomes-section {
+            background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%);
+        }
+
+        .outcome-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .outcome-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .outcome-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .outcome-card .outcome-value {
+            font-size: 56px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .outcome-card h4 {
+            font-size: 18px;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .outcome-card p {
+            color: var(--color-text-muted);
+            font-size: 14px;
+        }
+
+        .image-section {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .image-section img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-section .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(217, 119, 6, 0.9) 0%, rgba(245, 158, 11, 0.7) 100%);
+        }
+
+        .image-section .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 700px;
+            padding: 40px;
+        }
+
+        .image-section .content h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .image-section .content p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        /* Feature Cards Section */
+        .feature-cards-section {
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .feature-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(245, 158, 11, 0.15);
+        }
+
+        .feature-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        .feature-card p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* Process Steps Section */
+        .process-section {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+            color: white;
+        }
+
+        .process-section .section-head h2 {
+            color: white;
+        }
+
+        .process-section .section-head p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+            margin-top: 60px;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b 0%, #d97706 50%, var(--color-mint) 100%);
+            border-radius: 2px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+            font-weight: 700;
+            box-shadow: 0 8px 32px rgba(245, 158, 11, 0.4);
+        }
+
+        .process-step h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="AventIQBG.png" alt="AventIQ">
+            </a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="#">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="ai-automation-consulting.html">AI & Automation Consulting</a>
+                        <a href="opportunity-discovery.html">Opportunity Discovery</a>
+                        <a href="implementation-services.html">Implementation Services</a>
+                        <a href="cybersecurity-compliance.html">Cybersecurity & Compliance</a>
+                        <a href="managed-delivery.html">Managed Delivery</a>
+                        <a href="custom-ai-delivery.html">Custom AI Solutions</a>
+                        <a href="enterprise-app-development.html">Enterprise App Development</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="active">Industries</a>
+                    <div class="dropdown-menu">
+                        <a href="banking.html">Banking</a>
+                        <a href="finance.html">Finance</a>
+                        <a href="insurance.html">Insurance</a>
+                        <a href="automotive.html">Automotive</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Products</a>
+                </div>
+                <div class="dropdown">
+                    <a href="projects.html">Resources</a>
+                </div>
+                <a href="contact-us.html">Contact</a>
+            </div>
+            <div class="nav-cta">
+                <a href="contact-us.html" class="btn btn-outline-white btn-arrow">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="industry-hero">
+        <div class="industry-hero-text">
+            <span class="section-label">Automotive Industry</span>
+            <h1>Empowering <span class="text-gradient">Automotive Excellence</span> with RPA & AI</h1>
+            <p>Optimize production lines, streamline supply-chain operations, and deliver seamless customer experiences.
+            </p>
+            <div class="hero-buttons">
+                <a href="contact-us.html" class="btn btn-white btn-arrow">Get Started</a>
+                <a href="projects.html" class="btn btn-outline-white btn-arrow">View Case Studies</a>
+            </div>
+        </div>
+        <div class="industry-hero-images">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop"
+                alt="Automotive manufacturing" class="img-tall">
+            <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=400&h=300&fit=crop"
+                alt="Car production">
+            <img src="https://images.unsplash.com/photo-1560438718-eb61ede255eb?w=400&h=300&fit=crop"
+                alt="Quality control">
+        </div>
+    </section>
+
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>85%</h3>
+                    <p>Fewer Inventory Errors</p>
+                </div>
+                <div class="stat-item">
+                    <h3>30%</h3>
+                    <p>Lower Holding Costs</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99%</h3>
+                    <p>Defect Detection</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50%</h3>
+                    <p>Faster Inspection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label">Solutions</span>
+                <h2>What We Solve for Automotive</h2>
+                <p>Comprehensive automation solutions for the automotive sector.</p>
+            </div>
+            <div class="solutions-accordion">
+                <div class="accordion-nav">
+                    <div class="accordion-item active"
+                        data-image="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop">
+                        <h3>Inventory Management Automation</h3>
+                        <p>Reduce inventory discrepancies by 85% and lower holding costs by 30%. Automate stock
+                            tracking, reorder management, and warehouse optimization.</p>
+                    </div>
+                    <div class="accordion-item"
+                        data-image="https://images.unsplash.com/photo-1560438718-eb61ede255eb?w=600&h=400&fit=crop">
+                        <h3>Quality Control Automation</h3>
+                        <p>Improve defect detection accuracy to 99% and reduce inspection time by 50%. Deploy AI-powered
+                            visual inspection and automated testing systems.</p>
+                    </div>
+                    <div class="accordion-item"
+                        data-image="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop">
+                        <h3>Order Processing Automation</h3>
+                        <p>Streamline the automotive order entry-to-delivery lifecycle with automated bots. Reduce order
+                            processing time and improve accuracy.</p>
+                    </div>
+                    <div class="accordion-item"
+                        data-image="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=600&h=400&fit=crop">
+                        <h3>Supply Chain Optimization</h3>
+                        <p>Enhance supply chain visibility with real-time tracking, predictive analytics, and automated
+                            supplier management for just-in-time delivery.</p>
+                    </div>
+                </div>
+                <div class="accordion-visual">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
+                        alt="Automotive solution" id="accordionImage">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards Section - Revolutionizing Automotive with Agentic AI -->
+    <section class="section feature-cards-section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label">Capabilities</span>
+                <h2>Revolutionizing Automotive with Agentic AI & RPA</h2>
+                <p>Precision, agility, and scalability from production line to after-sales support.</p>
+            </div>
+            <div class="feature-cards-grid">
+                <div class="feature-card">
+                    <div class="feature-card-icon">📦</div>
+                    <h3>Optimize Inventory Management</h3>
+                    <p>Intelligent bots for tracking and replenishment. Reduce inventory discrepancies by 85% and
+                        increase accuracy to 95% while lowering holding costs by 30%.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">✅</div>
+                    <h3>Automate Quality Control</h3>
+                    <p>AI-powered inspection systems with robotic precision. Improve defect detection accuracy to 99%
+                        and reduce inspection time by 50%.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🚗</div>
+                    <h3>Streamline Order Processing</h3>
+                    <p>Digitize order entry through delivery tracking. Accelerate order processing times by 70% and
+                        reduce manual processing errors by 90%.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🚚</div>
+                    <h3>Enhance Supply Chain & Logistics</h3>
+                    <p>Manage logistics scheduling and shipment tracking. Enhance on-time delivery by 30% and improve
+                        shipment accuracy to 98%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Steps Section - Automotive RPA Automation Process -->
+    <section class="section process-section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label" style="color: var(--color-mint);">How It Works</span>
+                <h2>Automotive RPA Automation Process</h2>
+                <p>A streamlined approach to transforming your automotive operations with intelligent automation.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <h4>Order Entry</h4>
+                    <p>Automated capture and validation of orders from dealers and customers.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <h4>Inventory Check</h4>
+                    <p>Real-time stock verification and automated replenishment triggers.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <h4>Quality Control</h4>
+                    <p>AI-powered inspection and automated defect reporting.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">4</div>
+                    <h4>Delivery Tracking</h4>
+                    <p>Automated logistics coordination and customer notification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="image-section">
+        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1600&h=600&fit=crop"
+            alt="Manufacturing plant">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>"The factory of the future runs on intelligence, not just engines."</h2>
+            <p>Transform your automotive operations with smart automation and AI.</p>
+            <a href="contact-us.html" class="btn btn-white btn-arrow">Start Your Transformation</a>
+        </div>
+    </section>
+
+    <section class="section outcomes-section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label">Outcomes</span>
+                <h2>Results You Can Expect</h2>
+            </div>
+            <div class="outcome-cards">
+                <div class="outcome-card">
+                    <div class="outcome-value">85%</div>
+                    <h4>Fewer Errors</h4>
+                    <p>Reduce inventory discrepancies.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">30%</div>
+                    <h4>Lower Costs</h4>
+                    <p>Reduce holding and storage costs.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">99%</div>
+                    <h4>Detection Rate</h4>
+                    <p>Improve defect detection accuracy.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">50%</div>
+                    <h4>Faster QC</h4>
+                    <p>Reduce inspection time.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">40%</div>
+                    <h4>Faster Orders</h4>
+                    <p>Accelerate order processing.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">60%</div>
+                    <h4>Better Visibility</h4>
+                    <p>Improve supply chain transparency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Automotive Operations?</h2>
+                <p>Let's discuss how intelligent automation can optimize your production and supply chain.</p>
+                <a href="contact-us.html" class="btn btn-white btn-arrow">Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="AventIQBG.png" alt="AventIQ">
+                    <p>AventIQ specializes in delivering transformative digital solutions through AI, RPA, and digital
+                        engineering.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="projects.html">Case Studies</a>
+                        <a href="contact-us.html">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Industries</h4>
+                    <div class="footer-links">
+                        <a href="banking.html">Banking</a>
+                        <a href="finance.html">Finance</a>
+                        <a href="insurance.html">Insurance</a>
+                        <a href="automotive.html">Automotive</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <p><strong>India:</strong> New Delhi, 110044</p>
+                        <p><strong>USA:</strong> Austin, TX 78731</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AventIQ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                document.getElementById('accordionImage').src = item.getAttribute('data-image');
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

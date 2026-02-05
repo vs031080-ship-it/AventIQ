@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Industry Solutions - AventIQ</title>
+    <meta name="description"
+        content="Banks are leveraging Agentic AI and RPA to enhance efficiency, reduce costs, and improve customer experiences.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Industry Page Specific Styles */
+        .industry-hero {
+            min-height: 85vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0f0f2a 100%);
+        }
+
+        .industry-hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
+            color: white;
+        }
+
+        .industry-hero-text .section-label {
+            color: var(--color-mint);
+            margin-bottom: 16px;
+        }
+
+        .industry-hero-text h1 {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .industry-hero-text p {
+            font-size: 20px;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .industry-hero-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 16px;
+            padding: 40px;
+        }
+
+        .industry-hero-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .industry-hero-images .img-tall {
+            grid-row: span 2;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            background: linear-gradient(90deg, var(--color-lavender) 0%, #8b5cf6 100%);
+            padding: 60px 0;
+        }
+
+        .stats-banner .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 32px;
+            text-align: center;
+            color: white;
+        }
+
+        .stats-banner .stat-item h3 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stats-banner .stat-item p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Solutions Accordion */
+        .solutions-accordion {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .accordion-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--color-border);
+            padding: 24px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item h3 {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--color-text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .accordion-item.active h3 {
+            color: var(--color-lavender);
+        }
+
+        .accordion-item p {
+            display: none;
+            margin-top: 12px;
+            color: var(--color-text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .accordion-item.active p {
+            display: block;
+        }
+
+        .accordion-visual {
+            position: sticky;
+            top: 100px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .accordion-visual img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Outcomes Grid */
+        .outcomes-section {
+            background: linear-gradient(180deg, #f8fafc 0%, #e8eef5 100%);
+        }
+
+        .outcome-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .outcome-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .outcome-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .outcome-card .outcome-value {
+            font-size: 56px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-lavender) 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+        }
+
+        .outcome-card h4 {
+            font-size: 18px;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .outcome-card p {
+            color: var(--color-text-muted);
+            font-size: 14px;
+        }
+
+        /* Full Width Image Section */
+        .image-section {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .image-section img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-section .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(10, 10, 26, 0.9) 0%, rgba(26, 26, 58, 0.7) 100%);
+        }
+
+        .image-section .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 700px;
+            padding: 40px;
+        }
+
+        .image-section .content h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .image-section .content p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        /* Feature Cards Section */
+        .feature-cards-section {
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .feature-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(139, 92, 246, 0.15);
+        }
+
+        .feature-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-lavender) 0%, #8b5cf6 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        .feature-card p {
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* Process Steps Section */
+        .process-section {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+            color: white;
+        }
+
+        .process-section .section-head h2 {
+            color: white;
+        }
+
+        .process-section .section-head p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+            margin-top: 60px;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-lavender) 0%, #8b5cf6 50%, var(--color-mint) 100%);
+            border-radius: 2px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-lavender) 0%, #8b5cf6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+            font-weight: 700;
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.4);
+        }
+
+        .process-step h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="AventIQBG.png" alt="AventIQ">
+            </a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="#">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="ai-automation-consulting.html">AI & Automation Consulting</a>
+                        <a href="opportunity-discovery.html">Opportunity Discovery</a>
+                        <a href="implementation-services.html">Implementation Services</a>
+                        <a href="cybersecurity-compliance.html">Cybersecurity & Compliance</a>
+                        <a href="managed-delivery.html">Managed Delivery</a>
+                        <a href="custom-ai-delivery.html">Custom AI Solutions</a>
+                        <a href="enterprise-app-development.html">Enterprise App Development</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="active">Industries</a>
+                    <div class="dropdown-menu">
+                        <a href="banking.html">Banking</a>
+                        <a href="finance.html">Finance</a>
+                        <a href="insurance.html">Insurance</a>
+                        <a href="automotive.html">Automotive</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Products</a>
+                </div>
+                <div class="dropdown">
+                    <a href="projects.html">Resources</a>
+                </div>
+                <a href="contact-us.html">Contact</a>
+            </div>
+            <div class="nav-cta">
+                <a href="contact-us.html" class="btn btn-outline-white btn-arrow">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Industry Hero - Split Screen with Image Grid -->
+    <section class="industry-hero">
+        <div class="industry-hero-text">
+            <span class="section-label">Banking Industry</span>
+            <h1>Intelligent Automation for <span class="text-gradient">Modern Banking</span></h1>
+            <p>Banks are leveraging Agentic AI and RPA to enhance efficiency, reduce costs, and improve customer
+                experiences across every touchpoint.</p>
+            <div class="hero-buttons">
+                <a href="contact-us.html" class="btn btn-white btn-arrow">Get Started</a>
+                <a href="projects.html" class="btn btn-outline-white btn-arrow">View Case Studies</a>
+            </div>
+        </div>
+        <div class="industry-hero-images">
+            <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=400&h=300&fit=crop"
+                alt="Banking technology" class="img-tall">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop"
+                alt="Financial services">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
+                alt="Data analytics">
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>70%</h3>
+                    <p>Faster Customer Onboarding</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99%</h3>
+                    <p>Document Accuracy</p>
+                </div>
+                <div class="stat-item">
+                    <h3>65%</h3>
+                    <p>Faster Loan Processing</p>
+                </div>
+                <div class="stat-item">
+                    <h3>40%</h3>
+                    <p>Operational Cost Reduction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Accordion Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label">Solutions</span>
+                <h2>What We Solve for Banks</h2>
+                <p>Comprehensive automation solutions tailored for the banking sector.</p>
+            </div>
+            <div class="solutions-accordion">
+                <div class="accordion-nav">
+                    <div class="accordion-item active"
+                        data-image="https://images.unsplash.com/photo-1560472355-536de3962603?w=600&h=400&fit=crop">
+                        <h3>Customer Onboarding Automation</h3>
+                        <p>Streamline the entire customer onboarding journey with intelligent document processing,
+                            automated KYC verification, and seamless data extraction. Reduce onboarding time by 70%
+                            while improving accuracy to 99%.</p>
+                    </div>
+                    <div class="accordion-item"
+                        data-image="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop">
+                        <h3>Loan Processing Enhancement</h3>
+                        <p>Accelerate loan approvals by 65% with automated document verification, credit scoring
+                            integration, and risk assessment. Achieve 95% document accuracy and reduce operational costs
+                            by 40%.</p>
+                    </div>
+                    <div class="accordion-item"
+                        data-image="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop">
+                        <h3>Compliance & Regulatory Reporting</h3>
+                        <p>Achieve 100% reporting accuracy with automated compliance monitoring, real-time regulatory
+                            updates, and intelligent audit trail management. Reduce reporting time by 80%.</p>
+                    </div>
+                    <div class="accordion-item"
+                        data-image="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&h=400&fit=crop">
+                        <h3>Fraud Detection & Prevention</h3>
+                        <p>Deploy AI-powered fraud detection systems that analyze transaction patterns in real-time,
+                            identify anomalies, and prevent fraudulent activities before they impact your customers.</p>
+                    </div>
+                </div>
+                <div class="accordion-visual">
+                    <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=600&h=400&fit=crop"
+                        alt="Banking solution" id="accordionImage">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards Section - Transforming Banking with Agentic AI -->
+    <section class="section feature-cards-section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label">Capabilities</span>
+                <h2>Transforming Banking with Agentic AI & RPA</h2>
+                <p>Leverage intelligent automation to streamline operations and deliver exceptional customer
+                    experiences.</p>
+            </div>
+            <div class="feature-cards-grid">
+                <div class="feature-card">
+                    <div class="feature-card-icon">📋</div>
+                    <h3>Streamline Loan Processing</h3>
+                    <p>Efficient application management and digital document capture. Automate credit scoring, document
+                        verification, and approval workflows to reduce processing time by 65%.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">📊</div>
+                    <h3>Optimize Wealth & Investment Services</h3>
+                    <p>Automated portfolio tracking and detailed performance analytics. Enable personalized investment
+                        recommendations and real-time market insights for your clients.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">🛡️</div>
+                    <h3>Reinforce Compliance Measures</h3>
+                    <p>Digital KYC verification and advanced AML processes. Ensure regulatory compliance with automated
+                        monitoring, reporting, and audit trail management.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon">⭐</div>
+                    <h3>Boost Customer Satisfaction</h3>
+                    <p>Simplified account handling and targeted cross-selling. Deliver personalized experiences with
+                        AI-powered service recommendations and 24/7 digital assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Steps Section - Banking RPA Automation Process -->
+    <section class="section process-section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label" style="color: var(--color-mint);">How It Works</span>
+                <h2>Banking RPA Automation Process</h2>
+                <p>A streamlined approach to transforming your banking operations with intelligent automation.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <h4>Data Collection & Verification</h4>
+                    <p>Automating the intake of customer information with intelligent document processing and
+                        validation.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <h4>Transaction Processing</h4>
+                    <p>Handling payments, reconciliations, and fund transfers with speed and accuracy.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <h4>Fraud Detection & Compliance</h4>
+                    <p>Constant monitoring for regulatory adherence and suspicious activity patterns.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">4</div>
+                    <h4>Customer Service Automation</h4>
+                    <p>Managing inquiries, dispute resolution, and account updates seamlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Width Image Quote Section -->
+    <section class="image-section">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=600&fit=crop"
+            alt="Modern bank building">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>"Digital transformation in banking isn't optional—it's how you survive."</h2>
+            <p>Join the leading banks that have transformed their operations with intelligent automation, achieving
+                faster service delivery and improved customer satisfaction.</p>
+            <a href="contact-us.html" class="btn btn-white btn-arrow">Start Your Transformation</a>
+        </div>
+    </section>
+
+    <!-- Outcomes Grid -->
+    <section class="section outcomes-section">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label">Outcomes</span>
+                <h2>Results You Can Expect</h2>
+            </div>
+            <div class="outcome-cards">
+                <div class="outcome-card">
+                    <div class="outcome-value">70%</div>
+                    <h4>Faster Onboarding</h4>
+                    <p>Reduce customer onboarding time from days to hours with automated document processing.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">99%</div>
+                    <h4>Document Accuracy</h4>
+                    <p>Eliminate manual errors with AI-powered data extraction and validation.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">65%</div>
+                    <h4>Faster Loan Approvals</h4>
+                    <p>Accelerate loan processing with automated underwriting and risk assessment.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">40%</div>
+                    <h4>Cost Reduction</h4>
+                    <p>Lower operational costs through process automation and resource optimization.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">100%</div>
+                    <h4>Reporting Accuracy</h4>
+                    <p>Achieve perfect compliance with automated regulatory reporting.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-value">80%</div>
+                    <h4>Faster Reporting</h4>
+                    <p>Reduce time spent on compliance reporting and audits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Banking Operations?</h2>
+                <p>Let's discuss how intelligent automation can drive efficiency and customer satisfaction.</p>
+                <a href="contact-us.html" class="btn btn-white btn-arrow">Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="AventIQBG.png" alt="AventIQ">
+                    <p>AventIQ specializes in delivering transformative digital solutions through AI, RPA, and digital
+                        engineering.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="projects.html">Case Studies</a>
+                        <a href="contact-us.html">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Industries</h4>
+                    <div class="footer-links">
+                        <a href="banking.html">Banking</a>
+                        <a href="finance.html">Finance</a>
+                        <a href="insurance.html">Insurance</a>
+                        <a href="automotive.html">Automotive</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <p><strong>India:</strong> New Delhi, 110044</p>
+                        <p><strong>USA:</strong> Austin, TX 78731</p>
+                        <p>+91 11 4475 6172</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AventIQ. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">X</a>
+                    <a href="https://www.linkedin.com/company/aventiqai" class="social-link">in</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                const newImage = item.getAttribute('data-image');
+                document.getElementById('accordionImage').src = newImage;
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

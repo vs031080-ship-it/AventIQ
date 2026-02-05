@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AventIQ Orchestrate - RPA Operations Platform</title>
+    <meta name="description"
+        content="Orchestrate Your Automation Journey with Precision. Centralize, Monitor, and Optimize Your RPA Operations Seamlessly.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Product Hero - Centered with Product Mockup */
+        .product-hero {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #fff9f5 0%, #fff 50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 40px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 140, 66, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .product-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-badge::before {
+            content: '✨';
+            margin-right: 4px;
+        }
+
+        .product-hero h1 {
+            font-size: 72px;
+            font-weight: 800;
+            line-height: 1.05;
+            color: #0f172a;
+            max-width: 900px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-hero h1 span {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .product-hero p {
+            font-size: 22px;
+            color: #64748b;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-orange {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-orange:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-ghost {
+            background: white;
+            color: #0f172a;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            border-color: #f97316;
+            color: #f97316;
+        }
+
+        /* Product Mockup */
+        .product-mockup {
+            width: 100%;
+            max-width: 1100px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mockup-container {
+            background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 16px;
+            padding: 12px;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .mockup-header {
+            display: flex;
+            gap: 8px;
+            padding: 8px 12px;
+        }
+
+        .mockup-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mockup-dot.red {
+            background: #ef4444;
+        }
+
+        .mockup-dot.yellow {
+            background: #eab308;
+        }
+
+        .mockup-dot.green {
+            background: #22c55e;
+        }
+
+        .mockup-content {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .mockup-content img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Metrics Section */
+        .metrics-section {
+            padding: 100px 0;
+            background: #0f172a;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 40px;
+        }
+
+        .metric-card {
+            text-align: center;
+            color: white;
+        }
+
+        .metric-value {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 16px;
+            color: #94a3b8;
+        }
+
+        /* Features Tabs Section */
+        .features-tabs {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+        }
+
+        .tabs-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .tab-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .tab-btn:hover {
+            border-color: #f97316;
+        }
+
+        .tab-btn.active {
+            border-color: #f97316;
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+        }
+
+        .tab-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .tab-text h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .tab-text p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content-inner {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .tab-content-inner h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .tab-content-inner>p {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 12px;
+        }
+
+        .feature-item::before {
+            content: '✓';
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .tab-image {
+            margin-top: 32px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-image img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Integrations Section */
+        .integrations-section {
+            padding: 100px 0;
+            background: #f8fafc;
+            text-align: center;
+        }
+
+        .integrations-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .integration-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .integration-logo .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .integration-logo:hover .logo-icon {
+            transform: translateY(-5px);
+        }
+
+        .integration-logo span {
+            font-size: 16px;
+            font-weight: 500;
+            color: #64748b;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .comparison-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .comparison-card.highlight {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(234, 88, 12, 0.1) 100%);
+            border-color: #f97316;
+        }
+
+        .comparison-card h3 {
+            font-size: 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comparison-card.highlight h3 {
+            color: #f97316;
+        }
+
+        .comparison-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .comparison-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            color: #94a3b8;
+        }
+
+        .comparison-card.highlight .comparison-item {
+            color: #e2e8f0;
+        }
+
+        .comparison-item::before {
+            content: '✕';
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .comparison-card.highlight .comparison-item::before {
+            content: '✓';
+            color: #22c55e;
+        }
+
+        /* CTA Section */
+        .product-cta {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+            text-align: center;
+        }
+
+        .product-cta h2 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .product-cta p {
+            font-size: 20px;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="AventIQBG.png" alt="AventIQ">
+            </a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="#">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="ai-automation-consulting.html">AI & Automation Consulting</a>
+                        <a href="opportunity-discovery.html">Opportunity Discovery</a>
+                        <a href="implementation-services.html">Implementation Services</a>
+                        <a href="cybersecurity-compliance.html">Cybersecurity & Compliance</a>
+                        <a href="managed-delivery.html">Managed Delivery</a>
+                        <a href="custom-ai-delivery.html">Custom AI Solutions</a>
+                        <a href="enterprise-app-development.html">Enterprise App Development</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Industries</a>
+                    <div class="dropdown-menu">
+                        <a href="banking.html">Banking</a>
+                        <a href="finance.html">Finance</a>
+                        <a href="insurance.html">Insurance</a>
+                        <a href="automotive.html">Automotive</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="active">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="orchestrate.html">AventIQ Orchestrate</a>
+                        <a href="dms.html">Document Management</a>
+                        <a href="ccqa.html">Contact Center QA</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="projects.html">Resources</a>
+                </div>
+                <a href="contact-us.html">Contact</a>
+            </div>
+            <div class="nav-cta">
+                <a href="contact-us.html" class="btn btn-outline-white btn-arrow">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="product-hero" id="hero">
+        <div class="product-badge">Trusted by 100+ Customers</div>
+        <h1>Orchestrate Your Automation Journey with <span>Precision</span></h1>
+        <p>Centralize, Monitor, and Optimize Your RPA Operations Seamlessly with a single platform.</p>
+        <div class="hero-buttons">
+            <a href="contact-us.html" class="btn-orange">Get Started</a>
+            <a href="#features" class="btn-ghost">See Features</a>
+        </div>
+        <div class="product-mockup">
+            <div class="mockup-container">
+                <div class="mockup-header">
+                    <div class="mockup-dot red"></div>
+                    <div class="mockup-dot yellow"></div>
+                    <div class="mockup-dot green"></div>
+                </div>
+                <div class="mockup-content">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop"
+                        alt="Orchestrate Dashboard">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics-section" id="metrics">
+        <div class="container">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">52</div>
+                    <div class="metric-label">Total Ideas</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">47</div>
+                    <div class="metric-label">Total Processes</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">106K+</div>
+                    <div class="metric-label">Transactions</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">26K+</div>
+                    <div class="metric-label">Hours Saved</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">13.6</div>
+                    <div class="metric-label">FTE Saved</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Tabs Section -->
+    <section class="features-tabs" id="features">
+        <div class="container">
+            <div class="section-head" style="text-align: center; margin-bottom: 60px;">
+                <span class="section-label">Features</span>
+                <h2>Everything You Need to Automate</h2>
+                <p>A comprehensive suite of tools for RPA success</p>
+            </div>
+            <div class="tabs-container">
+                <div class="tab-nav">
+                    <div class="tab-btn active" data-tab="dashboard">
+                        <div class="tab-icon">📊</div>
+                        <div class="tab-text">
+                            <h4>Process Dashboard</h4>
+                            <p>Full visibility into operations</p>
+                        </div>
+                    </div>
+                    <div class="tab-btn" data-tab="ideaboard">
+                        <div class="tab-icon">💡</div>
+                        <div class="tab-text">
+                            <h4>Idea Board</h4>
+                            <p>Centralized automation ideas</p>
+                        </div>
+                    </div>
+                    <div class="tab-btn" data-tab="roi">
+                        <div class="tab-icon">📈</div>
+                        <div class="tab-text">
+                            <h4>ROI Tracking</h4>
+                            <p>Real-time value insights</p>
+                        </div>
+                    </div>
+                    <div class="tab-btn" data-tab="change">
+                        <div class="tab-icon">⚙️</div>
+                        <div class="tab-text">
+                            <h4>Change Control</h4>
+                            <p>Seamless update management</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-contents">
+                    <div class="tab-content active" id="dashboard">
+                        <div class="tab-content-inner">
+                            <h3>Process Dashboard</h3>
+                            <p>Get full visibility into your bots, processes, issues, and returns. Monitor everything
+                                from a single pane of glass.</p>
+                            <div class="feature-list">
+                                <div class="feature-item">Bot health monitoring</div>
+                                <div class="feature-item">Process status tracking</div>
+                                <div class="feature-item">Exception handling</div>
+                                <div class="feature-item">Performance analytics</div>
+                                <div class="feature-item">Real-time alerts</div>
+                                <div class="feature-item">Custom dashboards</div>
+                            </div>
+                            <div class="tab-image">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop"
+                                    alt="Dashboard view">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="ideaboard">
+                        <div class="tab-content-inner">
+                            <h3>Idea Board</h3>
+                            <p>Centralize your automation ideas and roadmap planning. Capture, prioritize, and execute
+                                automation opportunities.</p>
+                            <div class="feature-list">
+                                <div class="feature-item">Idea submission portal</div>
+                                <div class="feature-item">Priority scoring</div>
+                                <div class="feature-item">Feasibility assessment</div>
+                                <div class="feature-item">Pipeline management</div>
+                                <div class="feature-item">Collaboration tools</div>
+                                <div class="feature-item">Progress tracking</div>
+                            </div>
+                            <div class="tab-image">
+                                <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop"
+                                    alt="Idea board">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="roi">
+                        <div class="tab-content-inner">
+                            <h3>ROI Tracking</h3>
+                            <p>Get real-time insights into time saved, costs avoided, and business value delivered by
+                                your automation program.</p>
+                            <div class="feature-list">
+                                <div class="feature-item">Hours saved tracking</div>
+                                <div class="feature-item">Cost avoidance metrics</div>
+                                <div class="feature-item">FTE savings calculator</div>
+                                <div class="feature-item">Value realization reports</div>
+                                <div class="feature-item">Executive dashboards</div>
+                                <div class="feature-item">Trend analysis</div>
+                            </div>
+                            <div class="tab-image">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop"
+                                    alt="ROI tracking">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="change">
+                        <div class="tab-content-inner">
+                            <h3>Change Control</h3>
+                            <p>Seamlessly manage automation updates, maintenance, and version control across your entire
+                                bot portfolio.</p>
+                            <div class="feature-list">
+                                <div class="feature-item">Version management</div>
+                                <div class="feature-item">Change requests</div>
+                                <div class="feature-item">Approval workflows</div>
+                                <div class="feature-item">Deployment tracking</div>
+                                <div class="feature-item">Rollback capability</div>
+                                <div class="feature-item">Audit trail</div>
+                            </div>
+                            <div class="tab-image">
+                                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop"
+                                    alt="Change control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations Section -->
+    <section class="integrations-section" id="integrations">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label">Integrations</span>
+                <h2>Works With Your Favorite Tools</h2>
+                <p>Seamlessly integrate with leading RPA platforms</p>
+            </div>
+            <div class="integrations-logos">
+                <div class="integration-logo">
+                    <div class="logo-icon">🤖</div>
+                    <span>UiPath</span>
+                </div>
+                <div class="integration-logo">
+                    <div class="logo-icon">⚡</div>
+                    <span>Automation Anywhere</span>
+                </div>
+                <div class="integration-logo">
+                    <div class="logo-icon">🔷</div>
+                    <span>Power Automate</span>
+                </div>
+                <div class="integration-logo">
+                    <div class="logo-icon">🔵</div>
+                    <span>Blue Prism</span>
+                </div>
+                <div class="integration-logo">
+                    <div class="logo-icon">🌐</div>
+                    <span>SAP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section" id="comparison">
+        <div class="container">
+            <div class="section-head" style="text-align: center;">
+                <span class="section-label" style="color: #f97316;">Why Orchestrate</span>
+                <h2 style="color: white;">Orchestrate vs. Manual Operations</h2>
+                <p style="color: #94a3b8;">See the difference automation monitoring makes</p>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>❌ Manual Excel Ops</h3>
+                    <div class="comparison-list">
+                        <div class="comparison-item">Scattered data across spreadsheets</div>
+                        <div class="comparison-item">Manual status updates</div>
+                        <div class="comparison-item">No real-time visibility</div>
+                        <div class="comparison-item">Difficult to track ROI</div>
+                        <div class="comparison-item">Version control issues</div>
+                        <div class="comparison-item">Time-consuming reporting</div>
+                    </div>
+                </div>
+                <div class="comparison-card highlight">
+                    <h3>✨ AventIQ Orchestrate</h3>
+                    <div class="comparison-list">
+                        <div class="comparison-item">Centralized single source of truth</div>
+                        <div class="comparison-item">Automated real-time monitoring</div>
+                        <div class="comparison-item">Complete process visibility</div>
+                        <div class="comparison-item">Automatic ROI calculation</div>
+                        <div class="comparison-item">Built-in version control</div>
+                        <div class="comparison-item">One-click executive reports</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="product-cta" id="cta">
+        <div class="container">
+            <h2>Ready to Orchestrate Your Automation?</h2>
+            <p>Join 100+ enterprises already transforming their RPA operations with AventIQ Orchestrate.</p>
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="contact-us.html" class="btn-orange">Request a Demo</a>
+                <a href="contact-us.html" class="btn-ghost">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="AventIQBG.png" alt="AventIQ">
+                    <p>AventIQ specializes in delivering transformative digital solutions through AI, RPA, and digital
+                        engineering.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <div class="footer-links">
+                        <a href="orchestrate.html">AventIQ Orchestrate</a>
+                        <a href="dms.html">Document Management</a>
+                        <a href="ccqa.html">Contact Center QA</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Industries</h4>
+                    <div class="footer-links">
+                        <a href="banking.html">Banking</a>
+                        <a href="finance.html">Finance</a>
+                        <a href="insurance.html">Insurance</a>
+                        <a href="automotive.html">Automotive</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <p><strong>India:</strong> New Delhi, 110044</p>
+                        <p><strong>USA:</strong> Austin, TX 78731</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AventIQ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active from all buttons and contents
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                // Add active to clicked button and corresponding content
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
