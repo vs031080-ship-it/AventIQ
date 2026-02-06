@@ -158,6 +158,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Feature Accordion Logic (Homepage)
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    const visualItems = document.querySelectorAll('.visual-item');
+
+    accordionItems.forEach(item => {
+        item.addEventListener('click', function () {
+            // Remove active from all
+            accordionItems.forEach(i => i.classList.remove('active'));
+            visualItems.forEach(v => v.classList.remove('active'));
+
+            // Add active to clicked
+            this.classList.add('active');
+
+            // Activate corresponding visual
+            const targetId = this.getAttribute('data-target');
+            const targetVisual = document.getElementById(targetId);
+            if (targetVisual) {
+                targetVisual.classList.add('active');
+            }
+        });
+    });
+
+
+
     // Active link highlighting based on URL
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-links a');
