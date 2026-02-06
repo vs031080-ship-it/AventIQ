@@ -1980,21 +1980,38 @@ textarea.form-control {
         font-size: 28px;
         cursor: pointer;
         padding: 8px;
-        z-index: 1001;
+        z-index: 2002;
+        /* Above nav-links */
         color: var(--color-dark-navy);
         order: 3;
-        /* Ensure it stays on the right */
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: all 0.3s ease;
     }
 
+    /* Active X button inside a square box (EQUIEM style) */
+    .nav-links.active~.nav-toggle,
     .nav-toggle.active {
+        color: #4338ca !important;
+        /* Purple/Navy X */
         background: #f1f3f5;
         border-radius: 8px;
-        padding: 10px;
         width: 44px;
         height: 44px;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 0;
+        /* Hide the JS textContent ✕ */
+    }
+
+    /* Force the X using pseudo-element for perfect centering in the box */
+    .nav-links.active~.nav-toggle::before,
+    .nav-toggle.active::before {
+        content: '✕';
+        font-size: 24px;
+        display: block;
     }
 
     .navbar-dark .nav-toggle {
@@ -2004,27 +2021,6 @@ textarea.form-control {
     .navbar.scrolled .nav-toggle,
     .navbar-dark.scrolled .nav-toggle {
         color: var(--color-text-dark);
-    }
-
-    .nav-toggle.active {
-        color: #6366f1 !important;
-        /* Purple X */
-        background: #f8fafc;
-        border-radius: 8px;
-        width: 48px;
-        height: 48px;
-        position: fixed;
-        top: 16px;
-        right: 16px;
-        z-index: 2001;
-        font-size: 0;
-        /* Hide ☰ */
-    }
-
-    .nav-toggle.active::before {
-        content: '✕';
-        font-size: 24px;
-        display: block;
     }
 
     /* Hide Desktop CTA */
@@ -2070,7 +2066,9 @@ textarea.form-control {
         right: 0;
     }
 
-    .nav-links a {
+    /* Card style only for top-level links and dropdown triggers */
+    .nav-links>a,
+    .nav-links>.dropdown>a {
         color: var(--color-dark-navy) !important;
         font-size: 16px;
         font-weight: 500;
@@ -2082,6 +2080,21 @@ textarea.form-control {
         display: block;
         border-bottom: none;
         box-sizing: border-box;
+    }
+
+    /* Reset for sub-menu links to prevent card leakage */
+    .dropdown-menu a {
+        background: transparent !important;
+        padding: 14px 0 !important;
+        margin-bottom: 0 !important;
+        border-radius: 0 !important;
+        color: #4a5568 !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        width: 100% !important;
+        display: block !important;
     }
 
     .nav-links>a.active,
@@ -2156,18 +2169,13 @@ textarea.form-control {
         margin: 0;
     }
 
-    .dropdown-menu a {
-        font-size: 14px !important;
-        padding: 12px 0 !important;
-        background: transparent !important;
-        border-radius: 0 !important;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: #4a5568 !important;
-    }
+    /* This block is now redundant, removed to avoid confusion */
+
 
     .dropdown.active .dropdown-menu {
         display: block;
+        padding-top: 4px;
+        padding-bottom: 16px;
     }
 
     .dropdown>a {

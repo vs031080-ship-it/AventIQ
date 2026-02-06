@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (navToggle) {
         navToggle.addEventListener('click', () => {
             navLinksContainer.classList.toggle('active');
+            navToggle.classList.toggle('active');
             navToggle.textContent = navLinksContainer.classList.contains('active') ? '✕' : '☰';
         });
     }
@@ -160,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Feature Accordion Logic (Homepage)
     const accordionItems = document.querySelectorAll('.accordion-item');
-    
+
     // Initial setup: ensure first item is active without animation
     const firstVisual = document.getElementById('visual-1');
     if (firstVisual) firstVisual.classList.add('active');
@@ -169,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
         item.addEventListener('click', function () {
             // Find currently active visual
             const currentVisual = document.querySelector('.visual-item.active');
-            
+
             // Remove active from all items (headers)
             accordionItems.forEach(i => i.classList.remove('active'));
             this.classList.add('active');
@@ -182,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Animate out current (Slide Back)
                 currentVisual.classList.remove('active');
                 currentVisual.classList.add('slide-back');
-                
+
                 // Cleanup slide-back class after animation
                 setTimeout(() => {
                     currentVisual.classList.remove('slide-back');
