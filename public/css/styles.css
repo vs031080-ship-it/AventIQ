@@ -1777,9 +1777,10 @@ h2 {
     }
 }
 
-align-items: center;
-justify-content: center;
-background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+.visual-item {
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .visual-item.active {
@@ -2492,5 +2493,146 @@ textarea.form-control {
     .cta-buttons {
         flex-direction: column;
         align-items: center;
+    }
+
+    /* --- ADDED FOR MOBILE OPTIMIZATION --- */
+
+    /* Holistic Transformation (Capabilities) */
+    .accordion-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .accordion-visuals {
+        height: 300px;
+        /* Reduced height for mobile */
+        order: -1;
+        /* Show image above text */
+        margin-bottom: 24px;
+    }
+
+    /* Ready to Transform (Contact) */
+    .contact-split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .contact-text {
+        text-align: center;
+    }
+
+    .contact-benefits {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 auto;
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer Grid (Ensure it stacks) */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        /* Override the 1200px media query */
+        gap: 40px;
+    }
+
+    /* --- About Page Mobile Optimization --- */
+
+    /* About Intro Section */
+    .about-intro {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about-image {
+        order: -1;
+        /* Image on top */
+        max-height: 300px;
+        overflow: hidden;
+    }
+
+    /* Brands/Partners */
+    .brands-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 cols on mobile for logos */
+        gap: 24px;
+    }
+
+    /* Mission & Vision (Feature Grid) */
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    /* Founder Section */
+    .founder-content {
+        grid-template-columns: 1fr !important;
+        /* Force stack */
+        gap: 40px;
+        text-align: center;
+    }
+
+    .founder-image {
+        margin: 0 auto;
+        order: -1;
+    }
+
+    .founder-text {
+        padding-left: 0;
+        /* Reset padding */
+    }
+
+    /* Values Section */
+    .values-section-grid {
+        grid-template-columns: 1fr !important;
+        /* Stack values */
+        gap: 24px;
+    }
+
+    /* Process Section */
+    .process-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+    }
+
+    .process-card {
+        text-align: center;
+    }
+
+    /* Team Section */
+    .team-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    /* Navbar Mobile Fix */
+    .nav-links {
+        z-index: 1001;
+        /* Ensure above hero content */
+        background-color: var(--color-white);
+        /* Ensure opacity */
+    }
+
+    /* Fix Bottom Space on Mobile */
+    html {
+        background: var(--color-dark-navy);
+    }
+
+    body {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        min-height: 100vh;
+        background: var(--color-white);
+    }
+
+    .footer {
+        margin-bottom: 0;
     }
 }
