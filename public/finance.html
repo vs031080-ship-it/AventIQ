@@ -13,56 +13,114 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .industry-hero {
-            min-height: 85vh;
+            min-height: 100vh;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0f0f2a 100%);
+            background: #ffffff;
+            padding-top: 100px;
+            padding-bottom: 40px;
+            box-sizing: border-box;
+            margin-bottom: 60px;
         }
 
         .industry-hero-text {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 80px;
-            color: white;
+            padding: 40px 60px;
+            color: #1a1a2e;
         }
 
         .industry-hero-text .section-label {
-            color: var(--color-mint);
-            margin-bottom: 16px;
+            color: #10b981;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
         }
 
         .industry-hero-text h1 {
-            font-size: 56px;
+            font-size: 42px;
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+
+        .industry-hero-text h1 .text-gradient {
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: #1a1a2e;
+            background-clip: unset;
+            color: #1a1a2e;
         }
 
         .industry-hero-text p {
-            font-size: 20px;
-            opacity: 0.9;
-            line-height: 1.6;
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.7;
             margin-bottom: 32px;
+            max-width: 480px;
+        }
+
+        .industry-hero-text .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .industry-hero-text .hero-buttons .btn-white {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .industry-hero-text .hero-buttons .btn-white:hover {
+            background: #059669;
+        }
+
+        .industry-hero-text .hero-buttons .btn-outline-white {
+            background: transparent;
+            color: #1a1a2e;
+            border: 2px solid #e2e8f0;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .industry-hero-text .hero-buttons .btn-outline-white:hover {
+            border-color: #10b981;
+            color: #10b981;
         }
 
         .industry-hero-images {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 40px;
+            position: relative;
         }
 
         .industry-hero-images img {
             width: 100%;
-            height: 100%;
+            max-width: 500px;
+            height: auto;
             object-fit: cover;
-            border-radius: 16px;
+            border-radius: 12px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
         }
 
         .industry-hero-images .img-tall {
-            grid-row: span 2;
+            display: block;
+        }
+
+        .industry-hero-images img:not(.img-tall) {
+            display: none;
         }
 
         .stats-banner {
@@ -338,6 +396,7 @@
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 12px;
+            color: white;
         }
 
         .process-step p {
@@ -345,11 +404,21 @@
             font-size: 14px;
             line-height: 1.5;
         }
+
+        .image-section .content h2 {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-section .content p {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-dark">
+    <nav class="navbar">
         <div class="container">
             <a href="index.html" class="nav-logo">
                 <img src="AventIQBG.png" alt="AventIQ">
