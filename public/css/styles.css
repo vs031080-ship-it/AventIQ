@@ -2035,15 +2035,16 @@ textarea.form-control {
 
     .nav-links a {
         color: var(--color-dark-navy) !important;
-        font-size: 18px;
+        font-size: 17px;
         width: 100%;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--color-border);
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        display: block;
     }
 
     .nav-links>a:last-child {
         border-bottom: none;
-        margin-bottom: 24px;
+        margin-bottom: 30px;
     }
 
     .mobile-nav-cta {
@@ -2064,10 +2065,19 @@ textarea.form-control {
         opacity: 1;
         visibility: visible;
         display: none;
-        padding: 0 0 0 16px;
+        padding: 8px 0 8px 20px;
         min-width: 100%;
-        border-left: 2px solid var(--color-border);
+        border-left: 2px solid var(--color-mint);
+        background: rgba(211, 226, 233, 0.1);
         border-radius: 0;
+        margin: 4px 0;
+    }
+
+    .dropdown-menu a {
+        font-size: 15px !important;
+        padding: 10px 0 !important;
+        border-bottom: none !important;
+        color: var(--color-text-muted) !important;
     }
 
     .dropdown.active .dropdown-menu {
@@ -2075,21 +2085,28 @@ textarea.form-control {
     }
 
     .dropdown>a {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
     }
 
     .dropdown>a::after {
         content: '+';
-        font-weight: bold;
-        display: block;
-        margin-left: 10px;
+        font-family: monospace;
+        font-size: 22px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        transition: transform 0.3s ease;
     }
 
     .dropdown.active>a::after {
-        content: '-';
+        content: '−';
+        transform: rotate(180deg);
     }
 
     /* Hero & Layouts */
