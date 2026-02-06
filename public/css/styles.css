@@ -1778,13 +1778,41 @@ h2 {
 }
 
 .visual-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    display: flex;
+    /* Keep flex for alignment if content is not full image */
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    transform: translateY(100%);
+    /* Start from bottom */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+}
+
+.visual-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
 }
 
 .visual-item.active {
     opacity: 1;
+    z-index: 2;
+    transform: translateY(0);
+}
+
+.visual-item.slide-back {
+    z-index: 1;
+    transform: scale(0.9) translateY(-20px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.5s ease;
 }
 
 /* Testimonials */
@@ -2565,8 +2593,13 @@ textarea.form-control {
 
     /* Mission & Vision (Feature Grid) */
     .feature-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 32px;
+    }
+
+    .feature-card {
+        width: 100%;
+        max-width: none;
     }
 
     /* Founder Section */
@@ -2634,5 +2667,23 @@ textarea.form-control {
 
     .footer {
         margin-bottom: 0;
+    }
+
+    /* --- Services Page Mobile Optimization --- */
+
+    /* Ensure Engagement Models Stack */
+    .feature-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Ensure Benefits Section Stacks */
+    .service-benefits {
+        grid-template-columns: 1fr !important;
+        display: grid;
+        gap: 24px;
+    }
+
+    .benefit-card {
+        width: 100%;
     }
 }
