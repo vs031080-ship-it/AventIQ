@@ -2686,4 +2686,58 @@ textarea.form-control {
     .benefit-card {
         width: 100%;
     }
+
+    /* --- Industry Page Mobile Overrides (Internal Style Fixes) --- */
+    .industry-hero {
+        grid-template-columns: 1fr !important;
+        padding-top: 80px !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    .industry-hero-text {
+        padding: 40px 24px !important;
+    }
+
+    .industry-hero-images {
+        display: none !important;
+    }
+
+    .stats-banner .stats-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 32px !important;
+    }
+
+    .solutions-accordion {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+
+    .accordion-visual {
+        position: relative !important;
+        top: 0 !important;
+        height: auto !important;
+        order: -1;
+        /* Show image above text on mobile */
+        margin-bottom: 24px;
+    }
+
+    .accordion-visual img {
+        height: 300px !important;
+    }
+
+    .outcome-cards {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Process Steps reused from styles.css but ensuring override */
+    .process-steps {
+        grid-template-columns: 1fr !important;
+        margin-top: 40px !important;
+    }
+
+    .feature-cards-grid {
+        grid-template-columns: 1fr !important;
+    }
 }
