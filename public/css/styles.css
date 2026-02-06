@@ -1984,6 +1984,17 @@ textarea.form-control {
         color: var(--color-dark-navy);
         order: 3;
         /* Ensure it stays on the right */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-toggle.active {
+        background: #f1f3f5;
+        border-radius: 8px;
+        padding: 10px;
+        width: 44px;
+        height: 44px;
     }
 
     .navbar-dark .nav-toggle {
@@ -1993,6 +2004,27 @@ textarea.form-control {
     .navbar.scrolled .nav-toggle,
     .navbar-dark.scrolled .nav-toggle {
         color: var(--color-text-dark);
+    }
+
+    .nav-toggle.active {
+        color: #6366f1 !important;
+        /* Purple X */
+        background: #f8fafc;
+        border-radius: 8px;
+        width: 48px;
+        height: 48px;
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 2001;
+        font-size: 0;
+        /* Hide ☰ */
+    }
+
+    .nav-toggle.active::before {
+        content: '✕';
+        font-size: 24px;
+        display: block;
     }
 
     /* Hide Desktop CTA */
@@ -2015,18 +2047,23 @@ textarea.form-control {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
-        max-width: 300px;
+        width: 90%;
+        max-width: 400px;
         height: 100vh;
         background: var(--color-white);
         flex-direction: column;
         align-items: flex-start;
-        padding: 80px 32px 32px;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s ease;
+        padding: 100px 24px 40px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         overflow-y: auto;
         z-index: 2000;
         /* Above everything */
+    }
+
+    /* Disable hover underline decoration for mobile */
+    .nav-links a::after {
+        display: none !important;
     }
 
     .nav-links.active {
@@ -2035,11 +2072,22 @@ textarea.form-control {
 
     .nav-links a {
         color: var(--color-dark-navy) !important;
-        font-size: 17px;
+        font-size: 16px;
+        font-weight: 500;
         width: 100%;
-        padding: 14px 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 18px 20px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        background: #f7f8f9;
         display: block;
+        border-bottom: none;
+        box-sizing: border-box;
+    }
+
+    .nav-links>a.active,
+    .dropdown.active>a {
+        color: var(--color-lavender) !important;
+        background: #f3f7ff;
     }
 
     .nav-links>a:last-child {
@@ -2049,15 +2097,50 @@ textarea.form-control {
 
     .mobile-nav-cta {
         width: 100%;
-        margin-top: 16px;
+        margin-top: 40px;
         padding-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
     }
 
     .mobile-nav-cta .btn {
-        width: 100%;
+        width: 100% !important;
+        justify-content: space-between !important;
+        display: flex !important;
+        align-items: center !important;
+        padding: 18px 24px !important;
+        border-radius: 12px !important;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        margin: 0 !important;
+        border: none !important;
+    }
+
+    .mobile-nav-cta .btn::after {
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+        display: block;
+        line-height: 1;
+    }
+
+    .mobile-nav-cta .btn-outline-primary {
+        background: #1a202c !important;
+        /* Dark Slate/Navy */
+        color: white !important;
+    }
+
+    .mobile-nav-cta .btn-primary {
+        background: #ced4ff !important;
+        /* Light Purple/Mint */
+        color: #4338ca !important;
+        /* Darker Purple text */
     }
 
     /* Mobile Dropdown */
+    .dropdown {
+        width: 100%;
+    }
+
     .dropdown-menu {
         position: static;
         transform: none;
@@ -2065,19 +2148,22 @@ textarea.form-control {
         opacity: 1;
         visibility: visible;
         display: none;
-        padding: 8px 0 8px 20px;
+        padding: 8px 0 16px 20px;
         min-width: 100%;
-        border-left: 2px solid var(--color-mint);
-        background: rgba(211, 226, 233, 0.1);
+        background: transparent;
+        border: none;
         border-radius: 0;
-        margin: 4px 0;
+        margin: 0;
     }
 
     .dropdown-menu a {
-        font-size: 15px !important;
-        padding: 10px 0 !important;
-        border-bottom: none !important;
-        color: var(--color-text-muted) !important;
+        font-size: 14px !important;
+        padding: 12px 0 !important;
+        background: transparent !important;
+        border-radius: 0 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #4a5568 !important;
     }
 
     .dropdown.active .dropdown-menu {
@@ -2092,21 +2178,15 @@ textarea.form-control {
     }
 
     .dropdown>a::after {
-        content: '+';
-        font-family: monospace;
-        font-size: 22px;
-        font-weight: 400;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 30px;
-        height: 30px;
+        content: '\f054';
+        /* FontAwesome Chevron Right if loaded, else use svg/css */
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2322a7f1' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+        display: block;
         transition: transform 0.3s ease;
     }
 
     .dropdown.active>a::after {
-        content: '−';
-        transform: rotate(180deg);
+        transform: rotate(90deg);
     }
 
     /* Hero & Layouts */
