@@ -2687,57 +2687,85 @@ textarea.form-control {
         width: 100%;
     }
 
-    /* --- Industry Page Mobile Overrides (Internal Style Fixes) --- */
-    .industry-hero {
-        grid-template-columns: 1fr !important;
-        padding-top: 80px !important;
-        height: auto !important;
-        min-height: auto !important;
-    }
+/* --- Industry Page Mobile Overrides (High Specificity Fixes) --- */
 
-    .industry-hero-text {
-        padding: 40px 24px !important;
-    }
+/* 1. Fix Hamburger Visibility */
+.navbar {
+    background-color: var(--color-dark-navy) !important;
+}
 
-    .industry-hero-images {
-        display: none !important;
-    }
+.nav-toggle {
+    color: var(--color-white) !important;
+}
 
-    .stats-banner .stats-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 32px !important;
-    }
+/* 2. Fix Hero Layout */
+body .industry-hero {
+    grid-template-columns: 1fr !important;
+    padding-top: 100px !important;
+    /* Space for fixed navbar */
+    height: auto !important;
+    min-height: auto !important;
+}
 
-    .solutions-accordion {
-        grid-template-columns: 1fr !important;
-        gap: 40px !important;
-    }
+body .industry-hero-text {
+    padding: 40px 24px !important;
+}
 
-    .accordion-visual {
-        position: relative !important;
-        top: 0 !important;
-        height: auto !important;
-        order: -1;
-        /* Show image above text on mobile */
-        margin-bottom: 24px;
-    }
+body .industry-hero-images {
+    display: none !important;
+}
 
-    .accordion-visual img {
-        height: 300px !important;
-    }
+/* 3. Fix Stats Grid Squishing */
+body .stats-banner .stats-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 32px !important;
+}
 
-    .outcome-cards {
-        grid-template-columns: 1fr !important;
-    }
+body .stats-banner .stat-item {
+    width: 100% !important;
+}
 
-    /* Process Steps reused from styles.css but ensuring override */
-    .process-steps {
-        grid-template-columns: 1fr !important;
-        margin-top: 40px !important;
-    }
+/* 4. Fix Solutions Accordion Split */
+body .solutions-accordion {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 40px !important;
+}
 
-    .feature-cards-grid {
-        grid-template-columns: 1fr !important;
-    }
+body .accordion-visual {
+    position: relative !important;
+    width: 100% !important;
+    top: 0 !important;
+    order: -1 !important;
+    /* Image on top */
+    margin-bottom: 24px !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+}
+
+body .accordion-visual img {
+    height: 250px !important;
+    object-fit: cover !important;
+    width: 100% !important;
+}
+
+/* 5. Fix Outcomes & Process Grids */
+body .outcome-cards {
+    grid-template-columns: 1fr !important;
+}
+
+body .outcome-card {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+body .process-steps {
+    grid-template-columns: 1fr !important;
+    margin-top: 40px !important;
+}
+
+body .feature-cards-grid {
+    grid-template-columns: 1fr !important;
+}
 }
