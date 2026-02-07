@@ -540,6 +540,88 @@
             max-width: 600px;
             margin: 0 auto 40px;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .dms-hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding-top: 80px;
+            }
+
+            .dms-hero-content {
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .dms-hero-content h1 {
+                font-size: 32px;
+            }
+
+            .dms-hero-content p {
+                font-size: 16px;
+            }
+
+            .dms-hero-buttons {
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .dms-hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .dms-hero-visual {
+                padding: 20px;
+                display: none;
+                /* Hide complex visual on mobile for better load/layout */
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .bento-card.large,
+            .bento-card.tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .search-demo {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .search-filters {
+                justify-content: center;
+            }
+
+            .search-bar-demo {
+                margin: 0 -20px;
+                /* Bleed to edges */
+                border-radius: 0;
+            }
+
+            .security-badges {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+
+            .dms-cta h2 {
+                font-size: 32px;
+            }
+
+            .dms-cta p {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 

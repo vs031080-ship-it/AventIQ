@@ -495,6 +495,120 @@
             max-width: 600px;
             margin: 0 auto 40px;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .product-hero {
+                padding: 180px 20px 40px;
+                min-height: auto;
+            }
+
+            .product-hero h1 {
+                font-size: 36px;
+                line-height: 1.2;
+            }
+
+            .product-hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .metric-value {
+                font-size: 32px;
+            }
+
+            .tabs-container {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-nav {
+                position: static;
+                flex-direction: row;
+                overflow-x: auto;
+                gap: 12px;
+                padding-bottom: 16px;
+            }
+
+            .tab-btn {
+                flex-shrink: 0;
+                padding: 16px;
+            }
+
+            .tab-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .tab-text h4 {
+                font-size: 14px;
+            }
+
+            .tab-text p {
+                display: none;
+            }
+
+            .tab-content-inner {
+                padding: 24px;
+            }
+
+            .tab-content-inner h3 {
+                font-size: 24px;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-card {
+                padding: 24px;
+            }
+
+            .integrations-logos {
+                gap: 30px;
+            }
+
+            .product-cta h2 {
+                font-size: 32px;
+            }
+
+            .product-cta p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-hero h1 {
+                font-size: 28px;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metric-value {
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 

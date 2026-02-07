@@ -571,6 +571,77 @@
             max-width: 600px;
             margin: 0 auto 40px;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .ccqa-hero {
+                padding: 100px 20px 60px;
+                min-height: auto;
+            }
+
+            .hero-badge {
+                font-size: 12px;
+                padding: 8px 16px;
+                white-space: normal;
+                text-align: left;
+            }
+
+            .ccqa-hero h1 {
+                font-size: 32px;
+            }
+
+            .ccqa-hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto 40px;
+            }
+
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .metrics-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .sentiment-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .sentiment-features {
+                margin-bottom: 40px;
+            }
+
+            .call-card {
+                padding: 20px;
+            }
+
+            .compliance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ccqa-cta h2 {
+                font-size: 32px;
+            }
+
+            .ccqa-cta p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .metrics-cards {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
