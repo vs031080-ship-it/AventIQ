@@ -2715,12 +2715,41 @@ textarea.form-control {
 /* Large CTA */
 .cta-section-lg {
     padding: 120px 0;
-    background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('https://images.unsplash.com/photo-1451187580459-434962b9b6b6?auto=format&fit=crop&q=80&w=1920&h=800');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #2a2a72 100%);
     text-align: center;
     color: white;
+}
+
+/* CTA with Background Image */
+.cta-section-lg.cta-bg-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.cta-section-lg.cta-bg-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.cta-section-lg.cta-bg-image .container {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-section-lg.cta-bg-image h2,
+.cta-section-lg.cta-bg-image p {
+    color: white !important;
+}
+
+.cta-section-lg.cta-bg-image .cta-content-lg p {
+    color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .cta-content-lg h2 {
@@ -2733,6 +2762,56 @@ textarea.form-control {
     gap: 20px;
     justify-content: center;
     margin-top: 40px;
+}
+
+/* CTA with Image Layout */
+.cta-with-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.cta-with-image .cta-content-lg {
+    text-align: left;
+}
+
+.cta-with-image .cta-buttons {
+    justify-content: flex-start;
+}
+
+.cta-image {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.cta-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 991px) {
+    .cta-with-image {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .cta-with-image .cta-content-lg {
+        text-align: center;
+    }
+
+    .cta-with-image .cta-buttons {
+        justify-content: center;
+    }
+
+    .cta-image {
+        max-width: 500px;
+        margin: 0 auto;
+    }
 }
 
 /* Responsive Service Pages */
