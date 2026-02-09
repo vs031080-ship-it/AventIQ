@@ -1878,24 +1878,52 @@ h2 {
 /* Testimonials */
 .testimonials-section {
     padding: var(--section-gap) 0;
+    overflow: hidden;
+    /* Ensure ticker doesn't cause overflow */
 }
 
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.ticker-container-v2 {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.ticker-track-v2 {
+    display: flex !important;
     gap: 32px;
+    width: max-content;
+    animation: scroll-testimonials 80s linear infinite;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
 }
 
-.testimonial-card {
+.ticker-track-v2:hover {
+    animation-play-state: paused;
+}
+
+.ticker-card-v2 {
     background: var(--color-white);
     padding: 40px;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     border: 1px solid var(--color-border);
     transition: var(--transition-base);
+    width: 450px !important;
+    /* Fixed width for ticker items */
+    flex-shrink: 0 !important;
+    /* Prevent squeezing */
 }
 
-.testimonial-card:hover {
+@keyframes scroll-testimonials {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.ticker-card-v2:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-xl);
 }
@@ -1912,6 +1940,15 @@ h2 {
     align-items: center;
     gap: 16px;
     margin-top: 24px;
+}
+
+.ticker-card-v2 p {
+    white-space: normal !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 100%;
+    margin-bottom: 20px;
+    line-height: 1.6;
 }
 
 .client-avatar {
@@ -3165,5 +3202,53 @@ textarea.form-control {
 
     .mobile-nav-cta {
         margin-top: 24px !important;
+    }
+}
+
+/* Partners Section Resize */
+.partners-section {
+    padding: 60px 0;
+}
+
+.partners-track {
+    display: flex;
+    gap: 80px;
+    /* Wider gap for larger logos */
+    width: max-content;
+    animation: scroll-partners 40s linear infinite;
+    align-items: center;
+    /* Center vertically */
+}
+
+.partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.partner-logo img {
+    height: 80px;
+    /* Increased size (was likely smaller or default) */
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.partner-logo img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@keyframes scroll-partners {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
     }
 }
