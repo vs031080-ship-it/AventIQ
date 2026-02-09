@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Scripts to Strategies - AventIQ Resources</title>
+    <meta name="description"
+        content="Redesigning Enterprise Workflows in the Age of Intelligent Automation. A guide for enterprise architects and automation leads.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-hero {
+            padding: 120px 0 60px;
+            background: var(--color-dark-bg);
+            color: white;
+            text-align: center;
+        }
+
+        .article-hero h1 {
+            font-size: 48px;
+            margin-bottom: 24px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            margin-bottom: 60px;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-content h2 {
+            font-size: 32px;
+            margin-top: 48px;
+            margin-bottom: 24px;
+            color: var(--color-text-dark);
+        }
+
+        .article-content h3 {
+            font-size: 24px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: var(--color-text-dark);
+        }
+
+        .article-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            color: var(--color-text-body);
+        }
+
+        .article-content ul {
+            margin-bottom: 32px;
+            padding-left: 24px;
+        }
+
+        .article-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            color: var(--color-text-body);
+        }
+
+        .key-takeaways {
+            background: var(--color-light-bg);
+            padding: 32px;
+            border-radius: var(--radius-md);
+            margin: 40px 0;
+            border-left: 4px solid var(--color-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="AventIQBG.png" alt="AventIQ">
+            </a>
+            <div class="nav-toggle">☰</div>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="#">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="ai-automation-consulting.html">AI & Automation Consulting</a>
+                        <a href="opportunity-discovery.html">Opportunity Discovery</a>
+                        <a href="implementation-services.html">Implementation Services</a>
+                        <a href="cybersecurity-compliance.html">Cybersecurity & Compliance</a>
+                        <a href="managed-delivery.html">Managed Delivery</a>
+                        <a href="custom-ai-delivery.html">Custom AI Solutions</a>
+                        <a href="enterprise-app-development.html">Enterprise App Development</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Industries</a>
+                    <div class="dropdown-menu">
+                        <a href="banking.html">Banking</a>
+                        <a href="finance.html">Finance</a>
+                        <a href="insurance.html">Insurance</a>
+                        <a href="automotive.html">Automotive</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#">Products</a>
+                    <div class="dropdown-menu">
+                        <a href="orchestrate.html">AventIQ Orchestrate</a>
+                        <a href="dms.html">Document Management</a>
+                        <a href="ccqa.html">Contact Center QA</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="projects.html">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="projects.html">Case Studies</a>
+                        <a href="articles.html">Blog</a>
+                    </div>
+                </div>
+                <a href="contact-us.html">Contact</a>
+                <!-- Mobile Only CTA -->
+                <div class="mobile-nav-cta">
+                    <a href="contact-us.html" class="btn btn-outline-primary btn-arrow"
+                        style="width: 100%; justify-content: center; margin-bottom: 12px; border: 1px solid var(--color-border);">Request
+                        Demo</a>
+                    <a href="contact-us.html" class="btn btn-primary btn-arrow"
+                        style="width: 100%; justify-content: center;">Contact Us</a>
+                </div>
+            </div>
+            <div class="nav-cta">
+                <a href="contact-us.html" class="btn btn-outline-white btn-arrow">Request Demo</a>
+                <a href="contact-us.html" class="btn btn-primary btn-arrow">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Hero -->
+    <header class="article-hero">
+        <div class="container">
+            <span class="section-label" style="color: var(--color-mint); justify-content: center;">E-Book</span>
+            <h1>From Scripts to Strategies: Redesigning Enterprise Workflows in the Age of Intelligent Automation</h1>
+            <div class="article-meta">
+                <span>By AventIQ Strategy Team</span>
+                <span>•</span>
+                <span>10 Min Read</span>
+                <span>•</span>
+                <span>Intelligent Automation</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <article class="section">
+        <div class="container">
+            <div class="article-content">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=600&fit=crop"
+                    alt="Intelligent Automation workflows" class="article-image">
+
+                <h2>Executive Summary</h2>
+                <p>As automation becomes essential across industries, many organizations still rely on fragile,
+                    script-based
+                    systems that are difficult to scale and quick to break. This guide redefines how enterprises should
+                    think about automation—not as a series of isolated bots, but as a cohesive, intelligent ecosystem
+                    that
+                    can adapt, learn, and optimize workflows end-to-end.</p>
+
+                <div class="key-takeaways">
+                    <h3 style="margin-top: 0;">Key Takeaways</h3>
+                    <ul style="margin-bottom: 0;">
+                        <li>Shift from rigid scripts to adaptive, feedback-driven orchestration.</li>
+                        <li>Understand the layered architecture of the Intelligent Automation Stack.</li>
+                        <li>Learn from real-world success stories in insurance claims processing.</li>
+                        <li>Distinguish between static bots and strategic, autonomous agents.</li>
+                    </ul>
+                </div>
+
+                <h2>The Evolution of Automation</h2>
+                <p>Traditional automation was built on the premise of predictability. "If X happens, do Y." This worked
+                    well for simple, repetitive tasks. However, modern enterprise workflows are rarely linear. They
+                    involve unstructured data, exceptions, and changing business rules.</p>
+                <p>We are witnessing a shift from <strong>Rigid Rule-Based Scripting</strong> to <strong>Adaptive
+                        Orchestration</strong>. In this new paradigm, automation systems don't just follow instructions;
+                    they understand context, make decisions, and handle exceptions without human intervention.</p>
+
+                <h2>The Intelligent Stack</h2>
+                <p>To achieve true intelligent automation, organizations must build a layered architecture:</p>
+                <ul>
+                    <li><strong>RPA (Robotic Process Automation):</strong> The hands. Handles repetitive UI
+                        interactions.</li>
+                    <li><strong>AI & Machine Learning:</strong> The brain. Processes unstructured data and makes
+                        predictions.</li>
+                    <li><strong>Autonomous Agents:</strong> The orchestrators. Coordinate tasks, manage dependencies,
+                        and optimize workflows dynamically.</li>
+                </ul>
+
+                <h2>Real-World Application: Insurance Claims</h2>
+                <p>Consider a leading insurer struggling with manual claims processing. By moving from disconnected
+                    scripts to an intelligent agentic workflow, they achieved:</p>
+                <ul>
+                    <li><strong>50% Faster Processing Times:</strong> Agents parallelize tasks that humans did
+                        sequentially.</li>
+                    <li><strong>3x Faster Compliance Reporting:</strong> Real-time auditing replaced end-of-month manual
+                        checks.</li>
+                    <li><strong>40% Reduction in Escalations:</strong> Intelligent exception handling resolved minor
+                        issues automatically.</li>
+                </ul>
+
+                <h2>Bots vs. Agents: What's the Difference?</h2>
+                <p>It's crucial to understand that <strong>Agents are not just smarter Bots</strong>.</p>
+                <p>A Bot follows a linear script. If the "Save" button moves, the bot fails. An Agent understands the
+                    <em>goal</em> ("Save the document") and can find the button even if the UI changes. Agents engage in
+                    automated planning, large-scale decision making, and can self-heal when they encounter unexpected
+                    errors.</p>
+
+                <h2>Future-Proofing Your Strategy</h2>
+                <p>The biggest pitfall in automation today is creating "Siloed Dashboards"—isolated pockets of
+                    automation that don't talk to each other. Future-ready enterprises are moving towards
+                    <strong>Centralized Agent Orchestration</strong>, where a unified control layer manages digital
+                    workers alongside human teams.</p>
+                <p>To prepare for this future, start by auditing your current workflows. Identify where fragile scripts
+                    are slowing you down and where intelligent agents could unlock new levels of efficiency.</p>
+
+                <hr style="margin: 60px 0; border: 0; border-top: 1px solid var(--color-border);">
+
+                <h3>Ready to upgrade your automation strategy?</h3>
+                <p>Download the full e-book to dive deeper into technical architectures and implementation roadmaps.</p>
+                <a href="contact-us.html" class="btn btn-primary btn-arrow"
+                    style="display: inline-flex; margin-top: 16px;">Download E-Book</a>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="AventIQBG.png" alt="AventIQ">
+                    <p>AventIQ specializes in delivering transformative digital solutions through AI, RPA, and
+                        digital
+                        engineering to drive efficiency and innovation for enterprises worldwide.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="projects.html">Case Studies</a>
+                        <a href="articles.html">Blog</a>
+                        <a href="contact-us.html">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <div class="footer-links">
+                        <a href="ai-automation-consulting.html">AI & Automation Consulting</a>
+                        <a href="opportunity-discovery.html">Opportunity Discovery</a>
+                        <a href="custom-ai-delivery.html">Custom AI Solutions</a>
+                        <a href="managed-delivery.html">Managed Delivery</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <p><strong>India:</strong> B1/E13, Block E, Mohan Cooperative Industrial Estate, New
+                            Delhi,
+                            110044</p>
+                        <p><strong>USA:</strong> 5900 Balcones Drive STE 100, Austin, TX 78731</p>
+                        <p>+91 11 4475 6172</p>
+                        <p>contact@aventiq.ai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AventIQ. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">X</a>
+                    <a href="https://www.linkedin.com/company/aventiqai" class="social-link">in</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

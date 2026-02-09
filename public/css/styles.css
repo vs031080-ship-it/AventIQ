@@ -3252,3 +3252,125 @@ textarea.form-control {
         transform: translateX(-50%);
     }
 }
+
+/* TCS-Inspired Blog Layout */
+.tcs-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.tcs-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.tcs-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.tcs-breadcrumbs {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+.tcs-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.tcs-sticky-nav {
+    position: sticky;
+    top: 80px;
+    /* Adjust based on main navbar height */
+    background: white;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    z-index: 90;
+    margin-bottom: 60px;
+}
+
+.tcs-nav-links {
+    display: flex;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.tcs-nav-link {
+    color: var(--color-text-body);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.tcs-nav-link.active {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.tcs-content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+}
+
+.tcs-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 24px;
+}
+
+.tcs-content h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e1e1e;
+    margin-top: 50px;
+    margin-bottom: 24px;
+}
+
+.tcs-highlight-box {
+    background: #f4f4f4;
+    padding: 40px;
+    margin: 40px 0;
+    border-left: 5px solid var(--color-primary);
+}
+
+.tcs-highlight-box h3 {
+    margin-top: 0;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 16px;
+}
+
+.tcs-highlight-box p {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
