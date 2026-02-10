@@ -105,30 +105,65 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll(); // Check initial state
 
-    // Newsletter form submission
-    const newsletterForms = document.querySelectorAll('.newsletter-form');
+    // --- Form Submission Logic (Google Sheets) ---
+    // REPLACE THIS URL WITH YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxkjrGwqqfW7c0iQ372XZFVi6GVfkaldxmaAUR2ZNdy8266UTBt6cCofaUoIIFFG_P3/exec';
 
-    newsletterForms.forEach(form => {
+    function submitToGoogleSheet(form) {
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        // Add timestamp if not present (handled by script but good for debug)
+        // data['timestamp'] = new Date().toISOString();
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            mode: 'no-cors', // Important for Google Apps Script
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(() => {
+                alert('Thank you! Your submission has been received.');
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('Something went wrong. Please try again later.');
+            })
+            .finally(() => {
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            });
+    }
+
+    // Contact form submission (Home & Contact Page)
+    // We use a general selector to catch both if possible, or specific IDs
+    const contactForms = document.querySelectorAll('#homeContactForm, .contact-form form');
+    contactForms.forEach(form => {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            if (email) {
-                alert('Thank you for subscribing! We\'ll be in touch.');
-                this.reset();
-            }
+            submitToGoogleSheet(this);
         });
     });
 
-    // Contact form submission
-    const contactForm = document.querySelector('.contact-form form');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
+    const newsletterForms = document.querySelectorAll('.newsletter-form');
+    newsletterForms.forEach(form => {
+        form.removeEventListener('submit', null); // Remove old listener if any (logic below handles it)
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Thank you for your message! We\'ll get back to you soon.');
-            this.reset();
+            submitToGoogleSheet(this);
         });
-    }
+    });
 
     // Mobile Menu Toggle
     const navToggle = document.querySelector('.nav-toggle');
