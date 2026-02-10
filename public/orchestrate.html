@@ -68,7 +68,6 @@
         }
 
         .product-badge::before {
-            content: '?';
             margin-right: 4px;
         }
 
@@ -336,7 +335,7 @@
         }
 
         .feature-item::before {
-            content: '?';
+            content: '✓';
             width: 24px;
             height: 24px;
             background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
@@ -465,13 +464,16 @@
         }
 
         .comparison-item::before {
-            content: '?';
-            color: #ef4444;
-            font-weight: 600;
+            content: '✓';
         }
 
-        .comparison-card.highlight .comparison-item::before {
-            content: '?';
+        .comparison-item.cross::before {
+            content: '✕';
+            color: #ef4444;
+        }
+
+        .comparison-item.check::before {
+            content: '✓';
             color: #22c55e;
         }
 
@@ -737,28 +739,59 @@
             <div class="tabs-container">
                 <div class="tab-nav">
                     <div class="tab-btn active" data-tab="dashboard">
-                        <div class="tab-icon">??</div>
+                        <div class="tab-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                        </div>
                         <div class="tab-text">
                             <h4>Process Dashboard</h4>
                             <p>Full visibility into operations</p>
                         </div>
                     </div>
                     <div class="tab-btn" data-tab="ideaboard">
-                        <div class="tab-icon">??</div>
+                        <div class="tab-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .5 2.2 1.5 3.1.7.9 1.2 1.7 1.5 2.5">
+                                </path>
+                                <line x1="9" y1="18" x2="15" y2="18"></line>
+                                <line x1="10" y1="22" x2="14" y2="22"></line>
+                            </svg>
+                        </div>
                         <div class="tab-text">
                             <h4>Idea Board</h4>
                             <p>Centralized automation ideas</p>
                         </div>
                     </div>
                     <div class="tab-btn" data-tab="roi">
-                        <div class="tab-icon">??</div>
+                        <div class="tab-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
                         <div class="tab-text">
                             <h4>ROI Tracking</h4>
                             <p>Real-time value insights</p>
                         </div>
                     </div>
                     <div class="tab-btn" data-tab="change">
-                        <div class="tab-icon">??</div>
+                        <div class="tab-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
                         <div class="tab-text">
                             <h4>Change Control</h4>
                             <p>Seamless update management</p>
@@ -857,23 +890,58 @@
             </div>
             <div class="integrations-logos">
                 <div class="integration-logo">
-                    <div class="logo-icon">??</div>
+                    <div class="logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
                     <span>UiPath</span>
                 </div>
                 <div class="integration-logo">
-                    <div class="logo-icon">?</div>
+                    <div class="logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 8v4"></path>
+                            <path d="M12 16h.01"></path>
+                        </svg>
+                    </div>
                     <span>Automation Anywhere</span>
                 </div>
                 <div class="integration-logo">
-                    <div class="logo-icon">??</div>
+                    <div class="logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
                     <span>Power Automate</span>
                 </div>
                 <div class="integration-logo">
-                    <div class="logo-icon">??</div>
+                    <div class="logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
                     <span>Blue Prism</span>
                 </div>
                 <div class="integration-logo">
-                    <div class="logo-icon">??</div>
+                    <div class="logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 3h18v18H3z"></path>
+                            <path d="M12 8v8"></path>
+                            <path d="M8 12h8"></path>
+                        </svg>
+                    </div>
                     <span>SAP</span>
                 </div>
             </div>
@@ -890,25 +958,25 @@
             </div>
             <div class="comparison-grid">
                 <div class="comparison-card">
-                    <h3>? Manual Excel Ops</h3>
+                    <h3>Manual Excel Ops</h3>
                     <div class="comparison-list">
-                        <div class="comparison-item">Scattered data across spreadsheets</div>
-                        <div class="comparison-item">Manual status updates</div>
-                        <div class="comparison-item">No real-time visibility</div>
-                        <div class="comparison-item">Difficult to track ROI</div>
-                        <div class="comparison-item">Version control issues</div>
-                        <div class="comparison-item">Time-consuming reporting</div>
+                        <div class="comparison-item cross">Scattered data across spreadsheets</div>
+                        <div class="comparison-item cross">Manual status updates</div>
+                        <div class="comparison-item cross">No real-time visibility</div>
+                        <div class="comparison-item cross">Difficult to track ROI</div>
+                        <div class="comparison-item cross">Version control issues</div>
+                        <div class="comparison-item cross">Time-consuming reporting</div>
                     </div>
                 </div>
                 <div class="comparison-card highlight">
-                    <h3>? AventIQ Orchestrate</h3>
+                    <h3>AventIQ Orchestrate</h3>
                     <div class="comparison-list">
-                        <div class="comparison-item">Centralized single source of truth</div>
-                        <div class="comparison-item">Automated real-time monitoring</div>
-                        <div class="comparison-item">Complete process visibility</div>
-                        <div class="comparison-item">Automatic ROI calculation</div>
-                        <div class="comparison-item">Built-in version control</div>
-                        <div class="comparison-item">One-click executive reports</div>
+                        <div class="comparison-item check">Centralized single source of truth</div>
+                        <div class="comparison-item check">Automated real-time monitoring</div>
+                        <div class="comparison-item check">Complete process visibility</div>
+                        <div class="comparison-item check">Automatic ROI calculation</div>
+                        <div class="comparison-item check">Built-in version control</div>
+                        <div class="comparison-item check">One-click executive reports</div>
                     </div>
                 </div>
             </div>
@@ -936,10 +1004,7 @@
                     <img src="AventIQBG.png" alt="AventIQ">
                     <p>Transformative digital solutions through AI, RPA, and digital engineering for enterprises
                         worldwide.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email">
-                        <button type="submit">Subscribe</button>
-                    </form>
+                    <!-- Newsletter Form Removed -->
                 </div>
 
                 <!-- Quick Links -->
