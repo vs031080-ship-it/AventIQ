@@ -1076,15 +1076,15 @@ p {
    ============================================ */
 .footer {
     background: var(--color-dark-navy);
-    padding: 80px 0 40px;
+    padding: 48px 0 16px;
     color: var(--color-white);
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 60px;
-    margin-bottom: 60px;
+    grid-template-columns: 1.8fr 1fr 1.4fr 1fr 1fr 1.2fr;
+    gap: 32px;
+    margin-bottom: 24px;
 }
 
 .footer-brand {
@@ -1106,20 +1106,34 @@ p {
 
 .footer h4 {
     color: var(--color-white);
-    font-size: 16px;
-    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
 }
 
 .footer-links {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .footer-links a {
     color: rgba(255, 255, 255, 0.6);
-    font-size: 15px;
+    font-size: 14px;
     transition: var(--transition-base);
+}
+
+.footer-links p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.footer-links p strong {
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .footer-links a:hover {
@@ -1609,8 +1623,8 @@ p {
    ============================================ */
 @media (max-width: 1200px) {
     .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
     }
 }
 
