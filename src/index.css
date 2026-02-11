@@ -705,27 +705,61 @@ p {
 }
 
 .feature-item {
+    display: flex;
+    gap: 16px;
     padding: 24px;
     border-radius: var(--radius-lg);
     cursor: pointer;
     transition: var(--transition-base);
     border: 1px solid transparent;
+    /* Default transparent border */
+    background: transparent;
 }
 
-.feature-item:hover,
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
 .feature-item.active {
-    background: var(--color-light-bg);
-    border-color: var(--color-border);
+    background: var(--color-white);
+    border-color: rgba(124, 92, 255, 0.2);
+    /* Light lavender border */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    /* Soft shadow */
+}
+
+.check-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: #10b981;
+    /* Green background */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-top: 2px;
 }
 
 .feature-item h4 {
     color: var(--color-text-dark);
     margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .feature-item p {
     font-size: 15px;
     color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* Hide description on inactive items if desired, but screenshot shows description always visible. 
+   However, inactive items in screenshot look 'muted'. 
+*/
+.feature-item:not(.active) p {
+    color: var(--color-text-light);
 }
 
 .feature-image {
@@ -3548,26 +3582,57 @@ textarea.form-control {
     }
 }
 
-/* --- Mobile Spacing Fixes --- */
+/* --- Home Page Mobile Spacing Fixes --- */
 @media (max-width: 768px) {
     .stats-section {
-        padding: 40px 0;
+        padding: 40px 0 !important;
     }
 
+    .section-header,
     .section-head {
-        margin-bottom: 30px;
+        margin-bottom: 24px !important;
     }
 
     .feature-accordion-section {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: 20px !important;
+        padding-bottom: 40px !important;
     }
 
     .stats-grid {
-        gap: 16px;
+        gap: 16px !important;
     }
 
     .accordion-container {
-        gap: 32px;
+        gap: 24px !important;
+    }
+
+    /* --- Global Mobile Padding Reductions --- */
+    .section,
+    .section-sm {
+        padding: 40px 0 !important;
+    }
+
+    .hero-dark {
+        padding: 140px 0 40px !important;
+        min-height: auto !important;
+    }
+
+    .partners-section {
+        padding: 40px 0 !important;
+    }
+
+    .home-contact-section {
+        padding: 40px 0 !important;
+    }
+
+    .contact-split {
+        gap: 40px !important;
+        grid-template-columns: 1fr !important;
+        /* Stack vertically if not already */
+    }
+
+    .contact-text h2 {
+        font-size: 32px !important;
+        margin-bottom: 16px !important;
     }
 }

@@ -1,0 +1,634 @@
+html {
+            scroll-behavior: smooth;
+        }
+
+        /* Gradient Hero */
+        .ccqa-hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ccqa-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            animation: subtleMove 30s linear infinite;
+        }
+
+        @keyframes subtleMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(60px, 60px);
+            }
+        }
+
+        .ccqa-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .ccqa-hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .ccqa-hero p {
+            font-size: 22px;
+            color: white;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .btn-white {
+            background: white;
+            color: #7c3aed;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-ghost-white {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .btn-ghost-white:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        /* Waveform Visual */
+        .waveform-container {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            height: 80px;
+            align-items: center;
+        }
+
+        .wave-bar {
+            width: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 4px;
+            animation: wave 1.2s ease-in-out infinite;
+        }
+
+        .wave-bar:nth-child(1) {
+            height: 30px;
+            animation-delay: 0s;
+        }
+
+        .wave-bar:nth-child(2) {
+            height: 50px;
+            animation-delay: 0.1s;
+        }
+
+        .wave-bar:nth-child(3) {
+            height: 70px;
+            animation-delay: 0.2s;
+        }
+
+        .wave-bar:nth-child(4) {
+            height: 40px;
+            animation-delay: 0.3s;
+        }
+
+        .wave-bar:nth-child(5) {
+            height: 60px;
+            animation-delay: 0.4s;
+        }
+
+        .wave-bar:nth-child(6) {
+            height: 35px;
+            animation-delay: 0.5s;
+        }
+
+        .wave-bar:nth-child(7) {
+            height: 55px;
+            animation-delay: 0.6s;
+        }
+
+        .wave-bar:nth-child(8) {
+            height: 45px;
+            animation-delay: 0.7s;
+        }
+
+        .wave-bar:nth-child(9) {
+            height: 65px;
+            animation-delay: 0.8s;
+        }
+
+        .wave-bar:nth-child(10) {
+            height: 25px;
+            animation-delay: 0.9s;
+        }
+
+        @keyframes wave {
+
+            0%,
+            100% {
+                transform: scaleY(1);
+            }
+
+            50% {
+                transform: scaleY(0.5);
+            }
+        }
+
+        /* Metrics Cards */
+        .metrics-section {
+            padding: 120px 0;
+            background: #0f172a;
+        }
+
+        .metrics-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .metric-card {
+            background: linear-gradient(145deg, rgba(124, 58, 237, 0.2) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-8px);
+            border-color: #a855f7;
+        }
+
+        .metric-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 20px;
+        }
+
+        .metric-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .metric-card p {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        /* Features Horizontal Scroll */
+        .features-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #fff 0%, #faf5ff 100%);
+            overflow: hidden;
+        }
+
+        .features-scroll {
+            display: flex;
+            gap: 32px;
+            margin-top: 60px;
+            padding: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .features-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .feature-card-large {
+            flex: 0 0 400px;
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.15);
+            scroll-snap-align: start;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card-large:hover {
+            border-color: #a855f7;
+            transform: translateY(-8px);
+        }
+
+        .feature-card-large .icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin-bottom: 24px;
+        }
+
+        .feature-card-large h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .feature-card-large p {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .feature-card-large img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        /* Sentiment Analysis Demo */
+        .sentiment-section {
+            padding: 120px 0;
+            background: #0f172a;
+        }
+
+        .sentiment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .sentiment-content h2 {
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .sentiment-content h2 span {
+            background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sentiment-content p {
+            font-size: 18px;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .sentiment-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .sentiment-feature {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: rgba(168, 85, 247, 0.1);
+            border-radius: 12px;
+            color: white;
+        }
+
+        .sentiment-feature::before {
+            content: '✓';
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .sentiment-visual {
+            position: relative;
+        }
+
+        .call-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 32px;
+        }
+
+        .call-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .call-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .caller-avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .caller-details h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .caller-details p {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .call-duration {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .sentiment-meters {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .meter {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .meter-label {
+            width: 120px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .meter-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .meter-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .meter-fill.high {
+            background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+            width: 92%;
+        }
+
+        .meter-fill.medium {
+            background: linear-gradient(90deg, #a855f7 0%, #7c3aed 100%);
+            width: 78%;
+        }
+
+        .meter-fill.low {
+            background: linear-gradient(90deg, #eab308 0%, #ca8a04 100%);
+            width: 65%;
+        }
+
+        .meter-value {
+            width: 40px;
+            text-align: right;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+        }
+
+        /* Compliance Section */
+        .compliance-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #faf5ff 0%, #fff 100%);
+        }
+
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .compliance-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .compliance-card:hover {
+            border-color: #a855f7;
+            transform: translateY(-8px);
+        }
+
+        .compliance-card .icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 24px;
+        }
+
+        .compliance-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .compliance-card p {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .ccqa-cta {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .ccqa-cta .hero-buttons {
+            margin-bottom: 0;
+        }
+
+        .ccqa-cta h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .ccqa-cta p {
+            font-size: 20px;
+            color: white;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .ccqa-hero {
+                padding: 100px 20px 60px;
+                min-height: auto;
+            }
+
+            .hero-badge {
+                font-size: 12px;
+                padding: 8px 16px;
+                white-space: normal;
+                text-align: left;
+            }
+
+            .ccqa-hero h1 {
+                font-size: 32px;
+            }
+
+            .ccqa-hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto 40px;
+            }
+
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .metrics-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .sentiment-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .sentiment-features {
+                margin-bottom: 40px;
+            }
+
+            .call-card {
+                padding: 20px;
+            }
+
+            .compliance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ccqa-cta h2 {
+                font-size: 32px;
+            }
+
+            .ccqa-cta p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .metrics-cards {
+                grid-template-columns: 1fr;
+            }
+        }
